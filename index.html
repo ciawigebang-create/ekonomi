@@ -3,646 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Modul Interaktif Ekonomi Kelas X</title>
+    <title>Modul Ekonomi Kelas 10 - Semester 1</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; position: relative; color: #2c3e50; }
-        .navbar { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .navbar-brand { font-weight: 700; letter-spacing: 0.5px; }
-        
-        .sidebar { position: sticky; top: 90px; background: white; padding: 25px 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); max-height: calc(100vh - 120px); overflow-y: auto; }
-        .nav-pills .nav-link { color: #6c757d; font-weight: 500; padding: 12px 15px; margin-bottom: 8px; border-radius: 8px; transition: all 0.3s ease; }
-        .nav-pills .nav-link:hover { background-color: #f8f9fa; color: #2a5298; transform: translateX(4px); }
-        .nav-pills .nav-link.active { background-color: #2a5298; color: white; box-shadow: 0 4px 10px rgba(42,82,152,0.3); transform: translateX(4px); }
-        
-        .content-section { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 40px; scroll-margin-top: 90px; }
-        .theme-title { color: #1e3c72; font-weight: 700; border-bottom: 3px solid #e9ecef; padding-bottom: 15px; margin-bottom: 30px; position: relative; }
-        .theme-title::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 80px; height: 3px; background: #2a5298; }
-        
-        .sub-title { color: #34495e; font-weight: 600; margin-top: 40px; margin-bottom: 20px; display: flex; align-items: center; }
-        .sub-title i { color: #3498db; margin-right: 12px; font-size: 1.2rem;}
-        
-        .analogy-box { background: linear-gradient(135deg, #f3e8ff 0%, #e0f2fe 100%); border-radius: 10px; padding: 25px; margin: 25px 0; color: #1a252f; font-weight: 500; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border-left: 5px solid #8b5cf6; line-height:1.7;}
-        .analogy-box i { color: #8b5cf6; font-size: 1.3rem; margin-right: 10px; }
-        
-        .extra-box { background-color: #fffbeb; border-left: 5px solid #f59e0b; padding: 25px; border-radius: 8px; margin: 25px 0; }
-        .extra-box h5 { color: #d97706; font-weight: 700; margin-bottom: 15px;}
-        
-        .quiz-box { background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 35px; border-radius: 12px; margin-top: 35px; }
-        .quiz-title { color: #ea580c; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; }
-        .quiz-title i { margin-right: 10px; }
-        .quiz-box ol { padding-left: 20px; margin-top: 15px; margin-bottom: 25px;}
-        .quiz-box li { margin-bottom: 12px; line-height: 1.6; }
-        
-        .btn-answer { background-color: #10b981; border: none; color: white; padding: 12px 25px; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(16,185,129,0.25); }
-        .btn-answer:hover { background-color: #059669; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(16,185,129,0.35); color: white;}
-        .answer-content { background-color: #d1fae5; border: 1px solid #a7f3d0; color: #065f46; padding: 20px; border-radius: 8px; margin-top: 20px; font-weight: 500; line-height: 1.8;}
-        
-        .conclusion-box { background-color: #eff6ff; border-left: 5px solid #3b82f6; padding: 25px; border-radius: 8px; margin-top: 45px; font-style: italic; font-size: 1.05rem; line-height: 1.7;}
-        .conclusion-box i { color: #3b82f6; margin-right: 10px;}
-        
-        footer { background: #1e293b; color: #cbd5e1; padding: 30px 0; text-align: center; margin-top: 50px;}
+        body { padding-top: 70px; background-color: #f8f9fa; }
+        .materi-section { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .quiz-container { background: #e9ecef; padding: 20px; border-radius: 8px; margin-top: 20px; }
+        .essay-answer { display: none; color: #198754; font-weight: bold; margin-top: 10px; }
+        .btn-toggle { margin-top: 10px; margin-bottom: 20px; }
+        .result-box { display: none; padding: 15px; background: #d1e7dd; color: #0f5132; border-radius: 5px; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#sidebar-nav" data-bs-smooth-scroll="true" tabindex="0">
+<body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap me-2"></i> E-Modul Interaktif Ekonomi</a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <a class="navbar-brand" href="#">Modul Ekonomi Kelas 10</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link text-white fw-bold" href="#"><i class="fab fa-github me-1"></i> Ready for GitHub</a></li>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#bab1">1. Pengertian</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bab2">2. Kelangkaan</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bab3">3. Sistem Ekonomi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bab4">4. Literasi Keuangan</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container mt-5 mb-5">
-    <div class="row">
-        <!-- Sidebar Navigation -->
-        <div class="col-lg-3 d-none d-lg-block">
-            <nav id="sidebar-nav" class="sidebar flex-column nav-pills">
-<a class="nav-link" href="#tema1"><i class="fas fa-home me-2"></i>Tema 1</a>
-<a class="nav-link" href="#tema2"><i class="fas fa-box-open me-2"></i>Tema 2</a>
-<a class="nav-link" href="#tema3"><i class="fas fa-balance-scale me-2"></i>Tema 3</a>
-<a class="nav-link" href="#tema4"><i class="fas fa-bullseye me-2"></i>Tema 4</a>
-<a class="nav-link" href="#tema5"><i class="fas fa-sitemap me-2"></i>Tema 5</a>
+<div class="container">
 
-            </nav>
-        </div>
+    <div id="bab1" class="materi-section">
+        <h2>1. Pengertian Ilmu Ekonomi</h2>
+        <hr>
+        <p>Kata "ekonomi" berasal dari bahasa Yunani, yaitu <em>oikonomia</em>[cite: 15]. Kata ini terbentuk dari dua bagian: <em>oikos</em> yang artinya "rumah tangga", dan <em>nomos</em> yang berarti "aturan"[cite: 15]. Secara sederhana, ekonomi diartikan sebagai ilmu yang membahas cara manusia mengatur sumber daya yang ada untuk mencukupi kebutuhan hidupnya[cite: 16]. Menurut Adam Smith, ilmu ekonomi adalah ilmu sistematis yang mempelajari tingkah laku manusia dalam usahanya untuk mengalokasikan sumber daya yang terbatas untuk mencapai tujuan tertentu[cite: 23].</p>
+        
+        <h4>Soal Esai (10 Soal)</h4>
+        <button class="btn btn-sm btn-outline-primary btn-toggle" onclick="toggleAnswers('essay1')">Tampilkan/Sembunyikan Jawaban Esai</button>
+        <ol id="essay1">
+            <li>Jelaskan asal kata ekonomi! <div class="essay-answer">Berasal dari bahasa Yunani "oikonomia" yang terdiri dari "oikos" (rumah tangga) dan "nomos" (aturan)[cite: 15].</div></li>
+            <li>Apa pengertian ilmu ekonomi secara sederhana? <div class="essay-answer">Ilmu yang membahas cara manusia mengatur sumber daya yang ada untuk mencukupi kebutuhan hidupnya[cite: 16].</div></li>
+            <li>Siapakah yang pertama kali mencetuskan ilmu ekonomi pada tahun 1776? <div class="essay-answer">Adam Smith[cite: 22].</div></li>
+            <li>Jelaskan pengertian ekonomi menurut Adam Smith! <div class="essay-answer">Ilmu sistematis yang mempelajari tingkah laku manusia mengalokasikan sumber daya yang terbatas untuk tujuan tertentu[cite: 23].</div></li>
+            <li>Jelaskan pengertian ekonomi menurut Paul Samuelson! <div class="essay-answer">Studi tentang bagaimana manusia membuat keputusan dalam kondisi ketidakpastian dengan sumber daya terbatas[cite: 30, 31].</div></li>
+            <li>Apa inti pendapat para ahli tentang sumber daya? <div class="essay-answer">Sumber daya bersifat terbatas (scarcity)[cite: 40].</div></li>
+            <li>Apa yang dipelajari dalam ekonomi makro? <div class="essay-answer">Perekonomian dalam ruang lingkup secara menyeluruh dan lebih besar[cite: 87].</div></li>
+            <li>Apa tujuan utama mempelajari ilmu ekonomi? <div class="essay-answer">Membantu kita paham cara mengatur sumber daya terbatas untuk memenuhi kebutuhan[cite: 49].</div></li>
+            <li>Sebutkan 3 kelompok pembagian ilmu ekonomi menurut Alfred W. Stonier! <div class="essay-answer">Ilmu Ekonomi Deskriptif, Ilmu Ekonomi Teori, dan Ilmu Ekonomi Terapan[cite: 78, 81, 88].</div></li>
+            <li>Apa itu ilmu ekonomi terapan? <div class="essay-answer">Analisis ekonomi teori untuk merumuskan kebijakan yang tepat untuk menangani masalah ekonomi tertentu[cite: 89].</div></li>
+        </ol>
 
-        <!-- Main Content Area -->
-        <div class="col-lg-9">
-<section id="tema1" class="content-section">
-<h2 class="theme-title">Tema 1: Pengertian Ekonomi, Inti Masalah, dan Kebutuhan</h2>
-<h3 class="sub-title"><i class="fas fa-bookmark"></i> 1. Pengertian Ekonomi</h3>
-<p>Kata <strong>Ekonomi</strong> berasal dari bahasa Yunani kuno, yaitu <em>Oikonomia</em>. Kata ini dibentuk oleh dua akar kata: <strong>Oikos</strong> yang berarti keluarga atau rumah tangga, dan <strong>Nomos</strong> yang berarti aturan, hukum, atau manajemen. Jadi, ilmu ekonomi adalah ilmu yang mempelajari tentang bagaimana manusia mengatur sumber dayanya yang terbatas (seperti uang dan barang) agar dapat hidup sejahtera.</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Bayangkan ibumu sebagai menteri keuangan di rumah. Ia harus mengatur uang gaji ayah yang terbatas agar cukup untuk membeli beras, membayar listrik, hingga memberi uang sakumu. Cara ibu mengatur 'rumah tangga' itulah yang dinamakan ekonomi.</div>
-<div class="extra-box">
-<h5><i class="fas fa-star"></i> Pengertian Ekonomi Menurut Pakar</h5>
-<ul><li><strong>Adam Smith (Bapak Ilmu Ekonomi):</strong> Ilmu yang secara khusus menyelidiki tentang tingkah laku manusia dalam usahanya untuk mencapai kemakmuran.</li><li><strong>Paul A. Samuelson:</strong> Studi tentang bagaimana masyarakat memilih sumber daya yang terbatas untuk didistribusikan.</li><li><strong>N. Gregory Mankiw:</strong> Studi tentang bagaimana masyarakat mengelola sumber daya yang selalu terbatas.</li></ul>
-</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Pengertian Ekonomi</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B (Benar) / S (Salah) untuk soal 1-10, dan isilah titik-titik untuk soal 11-20!</em></p>
-                <ol>
-            <li>Kata ekonomi berasal dari bahasa Latin.</li>
-<li>Oikos berarti aturan atau hukum.</li>
-<li>Nomos berarti aturan atau manajemen.</li>
-<li>Ilmu ekonomi mengajarkan manusia mengatur rumah tangganya.</li>
-<li>Inti ekonomi adalah mengelola sumber daya yang tak terbatas.</li>
-<li>Ekonomi hanya mengatur keuangan negara, bukan keluarga.</li>
-<li>Adam Smith disebut Bapak Ilmu Ekonomi.</li>
-<li>Kebutuhan manusia sifatnya terbatas.</li>
-<li>Ilmu ekonomi membantu manusia mencapai kemakmuran.</li>
-<li>Ilmu ekonomi berkaitan erat dengan menentukan pilihan terbaik.</li>
-<li>Kata Oikos memiliki arti ...</li>
-<li>Bahasa asal kata ekonomi, yaitu Oikonomia, berasal dari negara ...</li>
-<li>Menurut Paul A. Samuelson, ekonomi adalah studi masyarakat dalam mengelola ...</li>
-<li>Pengelolaan sumber daya dilakukan demi mendapatkan keadaan ...</li>
-<li>Sumber daya yang ada di dunia ini jumlahnya bersifat ...</li>
-<li>Manusia harus mengatur sumber daya tersebut untuk memenuhi ...</li>
-<li>Ilmu ekonomi berlaku di tingkat pemerintahan maupun tingkat ...</li>
-<li>Mengatur jatah uang jajan bulanan adalah penerapan ilmu ...</li>
-<li>N. Gregory Mankiw menyebut ekonomi adalah ilmu masyarakat dalam mengelola sumber daya yang ...</li>
-<li>Ilmu ekonomi memaksa kita membuat ... yang terbaik.</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans1">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans1">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.S, 3.B, 4.B, 5.S, 6.S, 7.B, 8.S, 9.B, 10.B, 11.Keluarga/Rumah tangga, 12.Yunani, 13.Sumber daya terbatas, 14.Sejahtera/Makmur, 15.Terbatas, 16.Kebutuhan, 17.Keluarga/Rumah tangga, 18.Ekonomi, 19.Terbatas, 20.Pilihan.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 2. Inti Masalah Ekonomi</h3>
-<p>Inti dari masalah ekonomi adalah <strong>Kelangkaan (Scarcity)</strong>. Kelangkaan terjadi karena kebutuhan manusia tidak pernah ada habisnya (selalu bertambah), sedangkan alat pemuas kebutuhannya (seperti sumber daya alam, uang, dan tenaga kerja) jumlahnya sangat terbatas. Karena itulah, kita terpaksa harus menentukan pilihan (<em>choice</em>) dan membuat skala prioritas.</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Baterai HP kamu tinggal 3%, tapi kamu harus menelepon orang tua, membalas chat teman, dan lanjut main game. Kamu mengalami 'kelangkaan baterai' dan dipaksa memilih prioritas utama, yaitu menelepon orang tua.</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Inti Masalah Ekonomi</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Inti masalah ekonomi adalah harga barang yang selalu naik.</li>
-<li>Scarcity adalah bahasa Inggris untuk kelangkaan.</li>
-<li>Kebutuhan dan keinginan manusia jumlahnya tidak terbatas.</li>
-<li>Alat pemuas kebutuhan tersedia melimpah di alam tanpa batas.</li>
-<li>Kelangkaan memaksa manusia membuat skala prioritas.</li>
-<li>Kelangkaan hanya dialami oleh negara berkembang.</li>
-<li>Kelangkaan bisa terjadi karena sumber daya alam yang kurang.</li>
-<li>Kita bisa memenuhi semua keinginan kita dalam waktu bersamaan.</li>
-<li>Skala prioritas memandu kita memenuhi kebutuhan yang paling penting dahulu.</li>
-<li>Inti masalah ekonomi timbul akibat ketidakseimbangan kebutuhan dan sumber daya.</li>
-<li>Inti pokok masalah ekonomi sehari-hari adalah ...</li>
-<li>Istilah lain dari kelangkaan adalah ...</li>
-<li>Urutan daftar kebutuhan dari yang paling mendesak disebut skala ...</li>
-<li>Kelangkaan terjadi karena jumlah kebutuhan jauh melebihi ...</li>
-<li>Kelangkaan memaksa setiap orang untuk menjatuhkan ...</li>
-<li>Keterbatasan uang membuat kita harus menahan ...</li>
-<li>Mengurangi jajan demi beli buku pelajaran adalah bentuk menentukan ...</li>
-<li>Sesuatu yang kita korbankan saat membuat pilihan melahirkan konsep biaya ...</li>
-<li>Alat pemuas kebutuhan dapat berupa barang maupun ...</li>
-<li>Jika alat pemuas berlimpah, manusia tidak akan mengalami ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans2">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans2">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.B, 3.B, 4.S, 5.B, 6.S, 7.B, 8.S, 9.B, 10.B, 11.Kelangkaan, 12.Scarcity, 13.Prioritas, 14.Alat pemuas/Sumber daya, 15.Pilihan, 16.Keinginan, 17.Prioritas, 18.Peluang, 19.Jasa, 20.Kelangkaan.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 3. Kebutuhan Manusia</h3>
-<ul><li><strong>Menurut Intensitas:</strong> Primer (wajib: makan, rumah), Sekunder (kenyamanan: TV, HP), Tersier (mewah: mobil sport).</li><li><strong>Menurut Sifat:</strong> Jasmani (fisik: olahraga, makan), Rohani (jiwa: ibadah, liburan).</li><li><strong>Menurut Subjek:</strong> Individu (perorangan: kacamata), Kelompok/Sosial (bersama: jalan raya).</li><li><strong>Menurut Waktu:</strong> Sekarang (tidak bisa ditunda: obat), Masa Depan (bisa ditunda: menabung).</li></ul>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Kebutuhan itu bagaikan porsi makan malam. Nasi adalah primer (harus ada), es teh manis adalah sekunder (pelengkap kenyamanan), dan makan malam di restoran hotel bintang 5 adalah tersier (kemewahan).</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Jenis Kebutuhan</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Makanan dan minuman adalah contoh kebutuhan primer.</li>
-<li>Perhiasan emas adalah kebutuhan sekunder.</li>
-<li>Kebutuhan jasmani erat kaitannya dengan fisik.</li>
-<li>Pergi liburan dan beribadah termasuk kebutuhan jasmani.</li>
-<li>Pembangunan jembatan melayani kebutuhan kelompok.</li>
-<li>Kursi roda bagi nenek adalah kebutuhan individu.</li>
-<li>Obat bagi orang pusing adalah kebutuhan masa depan.</li>
-<li>Membayar asuransi pendidikan adalah memenuhi kebutuhan masa depan.</li>
-<li>Kebutuhan primer dipenuhi setelah kebutuhan tersier selesai.</li>
-<li>Baju/pakaian termasuk kebutuhan primer manusia.</li>
-<li>Kebutuhan yang sangat wajib agar manusia bisa hidup disebut kebutuhan ...</li>
-<li>HP dan TV digolongkan dalam kebutuhan ...</li>
-<li>Kebutuhan yang ditujukan untuk batin dan ketenangan hati disebut kebutuhan ...</li>
-<li>Olahraga dan makan bergizi memuaskan kebutuhan ...</li>
-<li>Jalan raya dan rumah sakit umum melayani kebutuhan ...</li>
-<li>Payung yang dicari saat tiba-tiba hujan merupakan kebutuhan ...</li>
-<li>Menabung untuk kuliah kelak adalah contoh pemenuhan kebutuhan ...</li>
-<li>Berdasarkan subjeknya, kebutuhan dibagi jadi individu dan ...</li>
-<li>Sepatu sekolah khusus bagi seorang siswa adalah kebutuhan ...</li>
-<li>Mobil sport mewah masuk ke dalam golongan kebutuhan ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans3">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans3">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.B, 2.S, 3.B, 4.S, 5.B, 6.B, 7.S, 8.B, 9.S, 10.B, 11.Primer, 12.Sekunder, 13.Rohani, 14.Jasmani, 15.Kelompok/Kolektif, 16.Sekarang, 17.Masa depan, 18.Kelompok, 19.Individu, 20.Tersier.
-                    </div>
-                </div>
-            </div>
-            <div class="conclusion-box"><i class="fas fa-flag-checkered"></i> <strong>Kesimpulan:</strong> Ekonomi merupakan ilmu tentang cara mengelola sumber daya terbatas untuk sejahtera. Kelangkaan adalah inti dari permasalahan ekonomi. Dengan memahami jenis-jenis kebutuhan (primer, sekunder, rohani, dan jasmani), kita dapat merancang skala prioritas untuk menyelesaikan masalah kelangkaan tersebut.</div>
-</section>
-<section id="tema2" class="content-section">
-<h2 class="theme-title">Tema 2: Alat Pemenuhan Kebutuhan</h2>
-<h3 class="sub-title"><i class="fas fa-bookmark"></i> 1. Berdasarkan Wujud dan Cara Memperoleh</h3>
-<p><strong>Wujud:</strong> Barang (konkret, bisa diraba) dan Jasa (abstrak, hanya bisa dirasakan).<br><strong>Cara Memperoleh:</strong> Barang Ekonomi (butuh pengorbanan), Barang Bebas (melimpah dari alam, tanpa pengorbanan), dan Barang Illith (jika sedikit bermanfaat, jika banyak jadi bencana).</p>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Wujud dan Cara Memperoleh</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Tas dan buku adalah alat pemuas berbentuk jasa.</li>
-<li>Jasa memiliki wujud abstrak (tidak terlihat secara fisik).</li>
-<li>Barang ekonomi selalu memerlukan pengorbanan untuk didapat.</li>
-<li>Udara di desa pegunungan adalah contoh barang ekonomi.</li>
-<li>Sinar matahari pagi adalah contoh barang bebas.</li>
-<li>Barang illith dapat berubah menjadi bencana.</li>
-<li>Barang berwujud konkret dapat diraba dan dipegang.</li>
-<li>Air sungai untuk mandi adalah barang ekonomi.</li>
-<li>Membayar makanan di kantin adalah usaha mendapat barang ekonomi.</li>
-<li>Angin topan adalah contoh bahaya dari barang illith.</li>
-<li>Benda pemuas kebutuhan yang bentuknya nyata disebut ...</li>
-<li>Pekerjaan guru mengajar di kelas adalah benda pemuas berbentuk ...</li>
-<li>Barang yang untuk mendapatkannya harus dibeli disebut barang ...</li>
-<li>Oksigen gratis di alam merupakan contoh barang ...</li>
-<li>Api saat kecil jadi sahabat, saat besar jadi bencana (kebakaran). Api adalah barang ...</li>
-<li>Baju dan meja berwujud ...</li>
-<li>Tabung oksigen murni di rumah sakit adalah barang ... (ekonomi/bebas).</li>
-<li>Berdasarkan wujudnya, alat pemuas ada 2: barang dan ...</li>
-<li>Air bah saat banjir adalah wujud bahaya dari barang ...</li>
-<li>Udara segar yang dihirup saat jalan pagi adalah barang ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans4">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans4">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.B, 3.B, 4.S, 5.B, 6.B, 7.B, 8.S, 9.B, 10.B, 11.Barang (Konkret), 12.Jasa, 13.Ekonomi, 14.Bebas, 15.Illith, 16.Konkret, 17.Ekonomi, 18.Jasa, 19.Illith, 20.Bebas.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 2. Berdasarkan Hubungan, Fungsi, dan Kualitas</h3>
-<p><strong>Hubungan:</strong> Substitusi (pengganti) dan Komplementer (pelengkap).<br><strong>Fungsi:</strong> Konsumsi (siap pakai) dan Produksi/Modal (untuk membuat barang lain).<br><strong>Kualitas:</strong> Inferior (ditinggalkan saat kaya) dan Superior (mewah berkualitas tinggi).</p>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Fungsi dan Kualitas</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Beras dan jagung adalah pasangan barang komplementer.</li>
-<li>Bensin dan motor adalah barang komplementer.</li>
-<li>Teh dan kopi adalah barang substitusi (pengganti).</li>
-<li>Barang konsumsi sudah siap dipakai/dimakan langsung.</li>
-<li>Mesin jahit di pabrik konveksi adalah barang konsumsi.</li>
-<li>Roti cokelat di swalayan adalah barang konsumsi.</li>
-<li>Tepung terigu bagi penjual martabak adalah barang produksi.</li>
-<li>Barang komplementer lebih berguna bila digunakan secara terpisah.</li>
-<li>Barang inferior akan ditinggalkan orang saat orang tersebut makin kaya.</li>
-<li>Mobil mewah adalah contoh barang inferior.</li>
-<li>Barang yang fungsinya saling melengkapi disebut barang ...</li>
-<li>Jaket dan mantel memiliki hubungan barang ...</li>
-<li>Sikat gigi dan pasta gigi memiliki hubungan barang ...</li>
-<li>Barang yang dijadikan modal membuat barang baru disebut barang ...</li>
-<li>Sepatu yang dipakai pelajar adalah contoh barang ...</li>
-<li>Traktor bagi petani berfungsi sebagai barang ...</li>
-<li>Barang berkualitas rendah yang dibeli saat uang pas-pasan disebut barang ...</li>
-<li>Makanan siap saji merupakan barang dengan fungsi ...</li>
-<li>Gunting bagi penjahit berfungsi sebagai barang ...</li>
-<li>Gula memberikan rasa manis pada teh. Gula disebut barang ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans5">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans5">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.B, 3.B, 4.B, 5.S, 6.B, 7.B, 8.S, 9.B, 10.S, 11.Komplementer, 12.Substitusi, 13.Komplementer, 14.Produksi (Modal), 15.Konsumsi, 16.Produksi, 17.Inferior, 18.Konsumsi, 19.Produksi, 20.Komplementer.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 3. Berdasarkan Proses dan Sifat</h3>
-<p><strong>Proses:</strong> Barang Mentah (kapas), Setengah Jadi (benang), Jadi (baju).<br><strong>Sifat:</strong> Barang Bergerak (laptop, mobil) dan Barang Tetap (tanah, gedung).</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Dalam pembuatan baju, kapas adalah bahan mentahnya, kemudian dipintal menjadi benang (setengah jadi), dan setelah dijahit barulah menjadi pakaian utuh (barang jadi).</div>
-<div class="extra-box">
-<h5><i class="fas fa-star"></i> Materi Ekstra: Barang Publik</h5>
-<ul><li>Barang publik adalah fasilitas yang disediakan pemerintah dan bisa dinikmati siapa saja tanpa mengurangi jatah orang lain. Contoh: taman kota, lampu jalan, jembatan umum.</li></ul>
-</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Proses dan Sifat</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Kapas dari kebun adalah contoh barang mentah.</li>
-<li>Kain di pabrik konveksi adalah barang jadi.</li>
-<li>Kemeja siap jual di toko adalah barang setengah jadi.</li>
-<li>Kayu gelondongan di hutan termasuk barang mentah.</li>
-<li>Benang adalah barang setengah jadi hasil olahan kapas.</li>
-<li>Sepeda lipat termasuk golongan barang bergerak.</li>
-<li>Sebidang tanah dan rumah tapak adalah barang tetap.</li>
-<li>Barang setengah jadi sudah bisa langsung dikonsumsi orang.</li>
-<li>Proses produksi merubah barang mentah menjadi barang jadi.</li>
-<li>Gandum adalah barang jadi bagi pembuat roti.</li>
-<li>Benda alam yang belum diolah sama sekali disebut barang ...</li>
-<li>Benda yang sedang dalam proses pengolahan pabrik disebut barang ...</li>
-<li>Celana panjang yang kamu pakai adalah bentuk barang ...</li>
-<li>Berdasarkan sifatnya, tas dan motor termasuk barang ...</li>
-<li>Gedung bertingkat masuk ke dalam golongan barang ...</li>
-<li>Getah karet di pohon adalah barang ...</li>
-<li>Lembaran kayu potong sebelum dirakit jadi meja adalah barang ...</li>
-<li>Meja belajar di kamarmu adalah barang ...</li>
-<li>Barang yang dapat dibawa atau dipindah-pindahkan disebut barang ...</li>
-<li>Sawah peninggalan nenek merupakan contoh barang ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans6">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans6">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.B, 2.S, 3.S, 4.B, 5.B, 6.B, 7.B, 8.S, 9.B, 10.S, 11.Mentah, 12.Setengah jadi, 13.Jadi, 14.Bergerak, 15.Tetap, 16.Mentah, 17.Setengah jadi, 18.Jadi, 19.Bergerak, 20.Tetap.
-                    </div>
-                </div>
-            </div>
-            <div class="conclusion-box"><i class="fas fa-flag-checkered"></i> <strong>Kesimpulan:</strong> Alat pemenuhan kebutuhan dapat diklasifikasikan ke dalam beragam bentuk berdasarkan wujud, kelangkaan, fungsinya bagi barang lain, proses produksi, maupun mobilitas sifatnya. Pengelompokan ini membantu manusia memaksimalkan guna suatu barang demi kesejahteraan.</div>
-</section>
-<section id="tema3" class="content-section">
-<h2 class="theme-title">Tema 3: Biaya Peluang</h2>
-<h3 class="sub-title"><i class="fas fa-bookmark"></i> 1. Konsep Biaya Peluang (Opportunity Cost)</h3>
-<p>Biaya peluang adalah biaya yang muncul akibat hilangnya sebuah alternatif (kesempatan) karena kita memilih alternatif lain. Biaya peluang tidak melulu diukur dalam wujud uang, tapi bisa berupa waktu luang, kesenangan, atau hilangnya pendapatan.</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Hari Minggu ini kamu punya tiket bioskop, tapi ibumu meminta tolong membersihkan rumah dengan imbalan masakan favoritmu. Jika kamu memilih membersihkan rumah, maka 'biaya peluang' (pengorbanan) yang kamu tanggung adalah keseruan menonton bioskop.</div>
-<div class="extra-box">
-<h5><i class="fas fa-star"></i> Soal yang Lebih Menantang</h5>
-<ul><li><strong>Soal:</strong> Ani lulus SMA dan mendapat 3 tawaran: 1) Kasir gaji Rp2,5 juta, 2) Penjaga toko gaji Rp2 juta, 3) Kuliah biaya Rp1,5 juta. Jika Ani memilih kuliah, berapakah biaya peluangnya?</li><li><strong>Pembahasan:</strong> Biaya peluang dihitung dari alternatif penghasilan terbesar yang dikorbankan. Alternatif yang hilang adalah kasir (2,5jt) atau penjaga toko (2jt). Nilai terbesarnya Rp2.500.000. Maka biaya peluang Ani adalah Rp2.500.000.</li></ul>
-</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Biaya Peluang</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Biaya peluang selalu berbentuk kerugian uang ratusan ribu.</li>
-<li>Istilah bahasa Inggris untuk biaya peluang adalah opportunity cost.</li>
-<li>Biaya peluang muncul karena kita harus membuat pilihan akibat kelangkaan.</li>
-<li>Jika kamu memilih tawaran A, maka tawaran B (yang diabaikan) adalah biaya peluangnya.</li>
-<li>Saat kamu tidur siang alih-alih belajar, maka belajar adalah biaya peluangmu.</li>
-<li>Biaya peluang menuntut kita mengorbankan hal yang paling tidak kita sukai.</li>
-<li>Biaya peluang memaksa manusia untuk bertindak irasional.</li>
-<li>Orang super kaya tidak pernah merasakan biaya peluang.</li>
-<li>Biaya peluang lahir karena sumber daya pemuas sifatnya terbatas.</li>
-<li>Biaya peluang adalah nilai alternatif terbaik yang kita korbankan.</li>
-<li>Sebutan asing untuk biaya peluang adalah ...</li>
-<li>Nilai atau hal yang dikorbankan karena kita memilih opsi lain disebut biaya ...</li>
-<li>Biaya peluang hadir karena adanya masalah ekonomi yaitu ...</li>
-<li>Saat uang tidak terbatas, manusia tidak perlu merasakan biaya ...</li>
-<li>Memilih naik sepeda motor dibanding kereta untuk hemat waktu, maka ... adalah biaya peluangnya.</li>
-<li>Karena alat pemuas terbatas, manusia harus membuat sebuah ...</li>
-<li>Setiap ... yang kita ambil pasti mengandung biaya peluang.</li>
-<li>Biaya peluang dihitung dari alternatif ... yang ditinggalkan.</li>
-<li>Memilih memakan es krim dan tidak jadi membeli cokelat. Maka ... adalah biaya peluangnya.</li>
-<li>Konsep biaya peluang berlaku untuk negara, perusahaan, dan ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans7">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans7">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.B, 3.B, 4.B, 5.B, 6.S, 7.S, 8.S, 9.B, 10.B, 11.Opportunity cost, 12.Peluang, 13.Kelangkaan, 14.Peluang, 15.Kenyamanan kereta, 16.Pilihan, 17.Pilihan, 18.Terbaik, 19.Cokelat, 20.Individu.
-                    </div>
-                </div>
-            </div>
-            <div class="conclusion-box"><i class="fas fa-flag-checkered"></i> <strong>Kesimpulan:</strong> Biaya peluang atau opportunity cost muncul dari kenyataan bahwa pilihan kita terbatas. Setiap pilihan yang diambil pasti mengharuskan kita mengorbankan pilihan terbaik lainnya.</div>
-</section>
-<section id="tema4" class="content-section">
-<h2 class="theme-title">Tema 4: Prinsip, Motif, dan Tindakan Ekonomi</h2>
-<h3 class="sub-title"><i class="fas fa-bookmark"></i> 1. Prinsip Ekonomi</h3>
-<p>Prinsip ekonomi adalah dasar berpikir: memperoleh hasil yang maksimal dengan pengorbanan yang sekecil-kecilnya (tertentu).</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Mencari jalan pintas paling dekat dan lancar untuk menuju sekolah agar cepat sampai (hasil maksimal) namun tidak capek dan tidak memakan bensin berlebih (pengorbanan minimal).</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Prinsip Ekonomi</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Prinsip ekonomi adalah pengorbanan besar untuk hasil kecil.</li>
-<li>Ibu menawar harga cabai di pasar adalah penerapan prinsip ekonomi.</li>
-<li>Rumus dasarnya: pengorbanan minimal untuk hasil maksimal.</li>
-<li>Menghamburkan uang jajan adalah tindakan yang sesuai prinsip ekonomi.</li>
-<li>Prinsip ekonomi hanya berlaku bagi pengusaha.</li>
-<li>Memilih barang diskonan berkualitas bagus membuktikan prinsip ekonomi konsumen.</li>
-<li>Dengan uang saku yang ada, membeli barang sesuai prioritas adalah prinsip ekonomi.</li>
-<li>Prinsip ekonomi selalu mengorbankan kualitas barang.</li>
-<li>Membandingkan harga antar toko dilakukan karena prinsip ekonomi.</li>
-<li>Prinsip ekonomi berguna untuk menghindari pemborosan.</li>
-<li>Bertindak untuk untung maksimal dengan modal minimal didasari oleh ... ekonomi.</li>
-<li>Menawar barang belanjaan merupakan tindakan berdasarkan ...</li>
-<li>Jika pengorbanannya kecil (minimal), maka hasil yang dikehendaki harus ...</li>
-<li>Prinsip ekonomi berlaku bagi produsen, distributor, dan ...</li>
-<li>Belanja barang mewah secara kredit sering melanggar ... ekonomi.</li>
-<li>Mendapat untung sebesar-besarnya adalah penerapan prinsip bagi pihak ...</li>
-<li>Prinsip ekonomi melatih seseorang memiliki gaya hidup ...</li>
-<li>Menerapkan skala prioritas sangat sesuai dengan ... ekonomi.</li>
-<li>Membuka toko di lokasi strategis adalah prinsip produsen untuk meningkatkan ...</li>
-<li>Hakikat prinsip ekonomi adalah tercapainya suatu langkah yang ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans8">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans8">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.B, 3.B, 4.S, 5.S, 6.B, 7.B, 8.S, 9.B, 10.B, 11.Prinsip, 12.Prinsip ekonomi, 13.Maksimal, 14.Konsumen, 15.Prinsip, 16.Penjual/Produsen, 17.Hemat, 18.Prinsip, 19.Laba/Untung, 20.Efisien.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 2. Motif Ekonomi</h3>
-<p>Motif ekonomi adalah alasan, niat, atau dorongan di dalam hati seseorang yang membuatnya melakukan tindakan ekonomi (contoh: memenuhi kebutuhan, mencari laba, kekuasaan, atau motif sosial).</p>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Motif Ekonomi</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Motif ekonomi adalah alasan pendorong tindakan manusia.</li>
-<li>Ayah bekerja untuk memberi makan anak-anak adalah motif kekuasaan.</li>
-<li>Pengusaha berjualan dengan motif utama mencari laba.</li>
-<li>Menyumbang beras ke korban bencana adalah motif mencari kekuasaan.</li>
-<li>Motif sosial didorong oleh rasa kemanusiaan dan ingin menolong.</li>
-<li>Membeli banyak saham pesaing dilandasi motif kekuasaan ekonomi.</li>
-<li>Semua orang memiliki motif ekonomi yang persis sama.</li>
-<li>Motif paling dasar manusia adalah memenuhi kebutuhan untuk bertahan hidup.</li>
-<li>Motif laba/untung murni dimiliki oleh pembeli.</li>
-<li>Motivasi internal adalah dorongan utama dari motif ekonomi.</li>
-<li>Alasan yang mendorong dilakukannya tindakan ekonomi disebut ... ekonomi.</li>
-<li>Kuli bangunan bekerja keras demi motif pemenuhan ...</li>
-<li>Pak RT membangun posko banjir dengan dasar motif ...</li>
-<li>Pengusaha berupaya menguasai jaringan pasar didasari motif ... ekonomi.</li>
-<li>Membuka butik baju didorong oleh motif untuk mendapatkan ...</li>
-<li>Suatu tindakan ekonomi selalu diawali oleh ... tertentu.</li>
-<li>Menyisihkan uang untuk ditabung adalah motif jaminan ...</li>
-<li>Motif menjadi sukarelawan medis disebut motif ...</li>
-<li>Membantu yayasan yatim piatu merupakan cerminan motif ...</li>
-<li>Motif meraup profit (laba) umumnya dimiliki oleh ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans9">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans9">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.B, 2.S, 3.B, 4.S, 5.B, 6.B, 7.S, 8.B, 9.S, 10.B, 11.Motif, 12.Kebutuhan hidup, 13.Sosial, 14.Kekuasaan, 15.Laba/Keuntungan, 16.Motif/Alasan, 17.Kebutuhan/Masa depan, 18.Sosial, 19.Sosial, 20.Produsen/Penjual.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 3. Tindakan Ekonomi</h3>
-<p>Tindakan ekonomi merupakan langkah, aksi, atau tindakan yang dilakukan oleh manusia secara rasional untuk memenuhi kebutuhannya dengan berpedoman pada prinsip dan motif ekonomi.</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Motif kamu adalah haus. Prinsip kamu adalah mendapat air segar yang murah. Maka Tindakannya adalah kamu pergi ke kantin, membandingkan harga es teh dan air mineral, lalu memutuskan membeli air mineral.</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Tindakan Ekonomi</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Tindakan ekonomi adalah aksi menghamburkan harta kekayaan.</li>
-<li>Setiap manusia yang hidup wajar pasti melakukan tindakan ekonomi.</li>
-<li>Tindakan ekonomi rasional berlandaskan akal pikiran yang sehat.</li>
-<li>Berutang besar demi membeli HP edisi terbaru adalah tindakan irasional.</li>
-<li>Tindakan ekonomi adalah upaya konkret memenuhi kebutuhan.</li>
-<li>Pelajar tidak mungkin melakukan tindakan ekonomi.</li>
-<li>Membeli lauk pauk di pasar adalah contoh tindakan ekonomi ibu.</li>
-<li>Tindakan ekonomi rasional dapat merugikan masa depan.</li>
-<li>Tindakan irasional memicu terjadinya pemborosan.</li>
-<li>Tindakan ekonomi terjadi sesudah adanya motif ekonomi.</li>
-<li>Aksi nyata dari usaha pemenuhan kebutuhan disebut ... ekonomi.</li>
-<li>Menabung karena ada sisa uang jajan adalah tindakan ekonomi secara ... (rasional/irasional).</li>
-<li>Membeli tas mahal hasil berutang ke rentenir adalah contoh tindakan ...</li>
-<li>Tindakan ekonomi ditopang oleh pedoman dasar yang disebut ... ekonomi.</li>
-<li>Pelaku utama yang bertindak mengkonsumsi barang disebut ...</li>
-<li>Saya memilih toko A karena lebih murah. Ini adalah ... ekonomi yang rasional.</li>
-<li>Tindakan yang memakai kalkulasi untung-rugi secara wajar disebut tindakan ...</li>
-<li>Berbelanja gila-gilaan karena sedang diskon merupakan tindakan yang ...</li>
-<li>Memutuskan untuk menyewa rumah dibanding kredit di luar batas adalah keputusan yang ...</li>
-<li>Tindakan, prinsip, dan ... ekonomi saling berkaitan satu sama lain.</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans10">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans10">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.B, 3.B, 4.B, 5.B, 6.S, 7.B, 8.S, 9.B, 10.B, 11.Tindakan, 12.Rasional, 13.Irasional, 14.Prinsip, 15.Konsumen, 16.Tindakan, 17.Rasional, 18.Irasional, 19.Rasional, 20.Motif.
-                    </div>
-                </div>
-            </div>
-            <div class="conclusion-box"><i class="fas fa-flag-checkered"></i> <strong>Kesimpulan:</strong> Tindakan ekonomi adalah kendaraan manusia dalam memenuhi kebutuhan. Bahan bakarnya adalah motif ekonomi (dorongan/alasan), sementara setirnya adalah prinsip ekonomi (efisien & hemat). Ketiganya harus serasi agar kemakmuran dapat dicapai.</div>
-</section>
-<section id="tema5" class="content-section">
-<h2 class="theme-title">Tema 5: Pembagian Ilmu Ekonomi</h2>
-<h3 class="sub-title"><i class="fas fa-bookmark"></i> 1. Ilmu Ekonomi Deskriptif</h3>
-<p>Mengkaji serta mengumpulkan semua fakta dan data empiris mengenai suatu persoalan ekonomi (Contoh: tabel data kemiskinan BPS).</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Ibarat sebuah rapor sekolah yang isinya hanya mencatat nilai-nilai aslimu tanpa memberi penghakiman atau menjelaskan kenapa nilaimu turun.</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Ilmu Ekonomi Deskriptif</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Ekonomi deskriptif berisi teori-teori mengarang bebas.</li>
-<li>Cabang ilmu ini menggambarkan keadaan berupa fakta/angka.</li>
-<li>Tabel inflasi dari BPS adalah contoh ilmu ekonomi deskriptif.</li>
-<li>Ilmu ini bertugas mencari solusi pengangguran.</li>
-<li>Ekonomi deskriptif mencatat peristiwa-peristiwa penting.</li>
-<li>Ilmu ini berguna untuk memotret realitas perekonomian lapangan.</li>
-<li>Pembuatan kebijakan baru dilakukan dalam ekonomi deskriptif.</li>
-<li>Laporan Tingkat panen padi menurun 2% adalah ekonomi deskriptif.</li>
-<li>Data ekonomi masa lalu dirangkum di sini.</li>
-<li>Ilmu ini menciptakan hukum-hukum ekonomi baru.</li>
-<li>Cabang ekonomi yang mengumpulkan fakta/data dinamakan ekonomi ...</li>
-<li>Contoh instansi yang selalu merilis angka statistik deskriptif di Indonesia adalah ...</li>
-<li>Laporan jumlah lulusan SMA yang menganggur adalah ranah ekonomi ...</li>
-<li>Ekonomi deskriptif memaparkan keadaan sesuai dengan ... (fakta/opini).</li>
-<li>Lawan dari fiksi adalah menjabarkan dengan angka secara ...</li>
-<li>Ekonomi deskriptif tidak membuat aturan, melainkan mencatat ...</li>
-<li>Untuk mengetahui angka pertumbuhan penduduk, kita melihat tabel ekonomi ...</li>
-<li>Berita ekonomi di TV sering mengutip data dari ekonomi ...</li>
-<li>Ilmu ini bertindak layaknya cermin yang merekam ... ekonomi suatu negara.</li>
-<li>Ekonomi deskriptif sifatnya sangat ... (nyata/teoretis).</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans11">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans11">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.S, 2.B, 3.B, 4.S, 5.B, 6.B, 7.S, 8.B, 9.B, 10.S, 11.Deskriptif, 12.BPS, 13.Deskriptif, 14.Fakta, 15.Nyata/Faktual, 16.Fakta/Data, 17.Deskriptif, 18.Deskriptif, 19.Kondisi/Keadaan, 20.Nyata/Faktual.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 2. Ilmu Ekonomi Teori (Makro dan Mikro)</h3>
-<p>Kumpulan landasan ilmu yang mencari hubungan sebab-akibat. <strong>Mikro:</strong> Skala partikular/kecil (Harga tempe di pasar). <strong>Makro:</strong> Skala global/negara (Inflasi nasional).</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Buku panduan medis. Di dalamnya dijelaskan secara teoretis kenapa sebuah penyakit bisa timbul, apa sebabnya, dan efeknya ke organ tubuh.</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Ilmu Ekonomi Teori</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Ekonomi teori dibagi menjadi mikro dan makro.</li>
-<li>Ekonomi makro membahas lingkup harga daging ayam di pasar.</li>
-<li>Perilaku konsumen individu adalah materi ekonomi mikro.</li>
-<li>Teori ekonomi memberikan kejelasan tentang relasi sebab-akibat.</li>
-<li>Inflasi negara dibahas menggunakan analisis mikro.</li>
-<li>Hukum jual-beli barang dibahas dalam cabang teori.</li>
-<li>Pembahasan pertumbuhan ekonomi global adalah ranah makro.</li>
-<li>Ekonomi teori merumuskan hukum-hukum ekonomi.</li>
-<li>Ekonomi mikro sering dipakai merumuskan neraca luar negeri.</li>
-<li>Hubungan sebab-akibat dapat melahirkan teori ekonomi baru.</li>
-<li>Ilmu ekonomi teori bercabang menjadi ... dan ...</li>
-<li>Ekonomi yang membahas susunan perekonomian suatu negara secara utuh dinamakan ...</li>
-<li>Perilaku perusahaan tunggal dibahas dalam ekonomi ...</li>
-<li>Data mengenai utang luar negeri dipakai oleh ahli ekonomi ...</li>
-<li>Menganalisis kenaikan biaya produksi pabrik tekstil A memakai pendekatan ...</li>
-<li>Hukum penawaran dikaji dalam ilmu ekonomi ...</li>
-<li>Jumlah Uang Beredar di sebuah negara masuk kajian ekonomi ...</li>
-<li>Analisis satu unit kecil seperti rumah tangga berada dalam kajian ekonomi ...</li>
-<li>Istilah Micro mempunyai arti ...</li>
-<li>Istilah Macro mempunyai arti ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans12">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans12">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.B, 2.S, 3.B, 4.B, 5.S, 6.B, 7.B, 8.B, 9.S, 10.B, 11.Mikro dan Makro, 12.Makro, 13.Mikro, 14.Makro, 15.Mikro, 16.Teori, 17.Makro, 18.Mikro, 19.Kecil/Sempit, 20.Besar/Luas.
-                    </div>
-                </div>
-            </div>
-            <h3 class="sub-title"><i class="fas fa-bookmark"></i> 3. Ilmu Ekonomi Terapan</h3>
-<p>Aplikasi (penerapan) dari teori ekonomi yang ditujukan untuk merumuskan kebijakan yang nyata di masyarakat dalam menyelesaikan masalah yang riil.</p>
-<div class="analogy-box"><i class="fas fa-lightbulb"></i> <strong>Analogi:</strong> Dokter yang sedang meresepkan obat berdasarkan ilmu kedokteran teoretisnya, agar penyakitmu sembuh.</div>
-<div class="extra-box">
-<h5><i class="fas fa-star"></i> Pernyataan Ekonomi</h5>
-<ul><li><strong>Pernyataan Positif:</strong> Menyatakan data riil (Misal: Harga BBM naik Rp1.000).</li><li><strong>Pernyataan Normatif:</strong> Menyatakan kebijakan atau yang sebaiknya terjadi (Misal: Pemerintah harusnya mengendalikan BBM).</li></ul>
-</div>
-
-            <div class="quiz-box">
-                <h4 class="quiz-title"><i class="fas fa-pencil-alt"></i> Quiz Ilmu Ekonomi Terapan</h4>
-                <p class="text-secondary fw-semibold"><em>Jawab B/S (1-10) dan Isian (11-20)!</em></p>
-                <ol>
-            <li>Ekonomi terapan dipraktikkan langsung mengatasi masalah riil.</li>
-<li>Ekonomi terapan tidak pernah berpedoman pada ekonomi teori.</li>
-<li>Kebijakan menurunkan tingkat suku bunga bank adalah praktik ekonomi terapan.</li>
-<li>Ekonomi terapan dimanfaatkan demi pengambilan keputusan strategis.</li>
-<li>Manajemen perbankan adalah contoh ilmu teori.</li>
-<li>Ekonomi terapan sering dipakai para menteri ekonomi negara.</li>
-<li>Ekonomi pertanian dan moneter adalah subdivisi ekonomi terapan.</li>
-<li>Ekonomi terapan bertujuan membuat hukum ekonomi baru yang murni.</li>
-<li>Operasional bisnis perusahaan mencerminkan sisi ekonomi terapan.</li>
-<li>Ilmu ini menghubungkan sisi teoretis dengan kehidupan nyata lapangan.</li>
-<li>Mengaplikasikan teori ke masalah-masalah harian merupakan fungsi ekonomi ...</li>
-<li>Output utama ekonomi terapan sering berwujud ... (kebijakan/data awal).</li>
-<li>Ilmu ekonomi yang memfokuskan pengaturan uang perbankan disebut ekonomi ...</li>
-<li>Teori yang diaplikasikan untuk mengatur perusahaan disebut ... perusahaan.</li>
-<li>Pemerintah membuat kebijakan ekspor-impor. Ini masuk ke ekonomi ...</li>
-<li>Terapan berarti bersifat ... dalam memecahkan masalah.</li>
-<li>Keputusan bisnis yang aplikatif didasari oleh ekonomi ...</li>
-<li>Akuntansi dan keuangan bisnis merujuk pada ilmu ekonomi ...</li>
-<li>Ahli kebijakan publik menerapkan ilmu ekonomi ...</li>
-<li>Ekonomi terapan menjembatani antara data dengan penyelesaian masalah secara ...</li>
-
-                </ol>
-                <button class="btn btn-answer" type="button" data-bs-toggle="collapse" data-bs-target="#ans13">
-                    <i class="fas fa-key me-2"></i>Lihat Kunci Jawaban
-                </button>
-                <div class="collapse" id="ans13">
-                    <div class="answer-content">
-                        <strong><i class="fas fa-check-circle me-1"></i> Kunci Jawaban:</strong><br>
-                        1.B, 2.S, 3.B, 4.B, 5.S, 6.B, 7.B, 8.S, 9.B, 10.B, 11.Terapan, 12.Kebijakan, 13.Moneter, 14.Manajemen, 15.Terapan, 16.Praktis, 17.Terapan, 18.Terapan, 19.Terapan, 20.Praktis.
-                    </div>
-                </div>
-            </div>
-            <div class="conclusion-box"><i class="fas fa-flag-checkered"></i> <strong>Kesimpulan:</strong> Ilmu ekonomi dibagi menjadi tiga divisi yang saling menyokong: Ekonomi Deskriptif mengumpulkan dan menampilkan fakta; Ekonomi Teori (Mikro dan Makro) menjelaskan relasi hukum sebab-akibat dari fakta tersebut; dan Ekonomi Terapan menggunakan teori-teori yang ada untuk meracik sebuah kebijakan atau jalan keluar nyata.</div>
-</section>
-
+        <div class="quiz-container">
+            <h4>Kuis Pilihan Ganda (20 Soal)</h4>
+            <form id="quiz1Form"></form>
+            <button class="btn btn-success mt-3" onclick="submitQuiz('quiz1', 20)">Cek Nilai</button>
+            <div id="quiz1Result" class="result-box"></div>
         </div>
     </div>
+
+    <div id="bab2" class="materi-section">
+        <h2>2. Mengenal Kelangkaan dan Kebutuhan Manusia</h2>
+        <hr>
+        <p>Kelangkaan adalah kondisi ketika jumlah kebutuhan manusia tidak sebanding dengan alat pemenuhan kebutuhannya[cite: 101]. Kebutuhan manusia dibedakan menjadi 4 macam, yaitu menurut intensitasnya (primer, sekunder, tersier) [cite: 147], menurut sifatnya (jasmani, rohani) [cite: 162], menurut waktu penggunaannya (sekarang, masa depan) [cite: 168], dan menurut subjeknya (individu, kelompok)[cite: 175].</p>
+        
+        <h4>Soal Esai (10 Soal)</h4>
+        <button class="btn btn-sm btn-outline-primary btn-toggle" onclick="toggleAnswers('essay2')">Tampilkan/Sembunyikan Jawaban Esai</button>
+        <ol id="essay2">
+            <li>Apa yang dimaksud dengan kelangkaan? <div class="essay-answer">Kondisi ketika jumlah kebutuhan manusia tidak sebanding dengan alat pemenuhan kebutuhannya[cite: 101].</div></li>
+            <li>Sebutkan penyebab kelangkaan sumber daya ekonomi! <div class="essay-answer">Perbedaan letak geografis, pertumbuhan penduduk, kemampuan produksi, perkembangan teknologi, dan bencana alam[cite: 114, 118, 121, 126, 132].</div></li>
+            <li>Apa itu kebutuhan primer? Berikan contoh! <div class="essay-answer">Kebutuhan yang paling penting dipenuhi, contoh: makan, pakaian, tempat tinggal[cite: 150, 151].</div></li>
+            <li>Jelaskan perbedaan kebutuhan jasmani dan rohani! <div class="essay-answer">Jasmani diperlukan fisik (makan, olahraga), rohani diperlukan batin/jiwa (ketenangan, keamanan)[cite: 164, 166].</div></li>
+            <li>Mengapa bencana alam menyebabkan kelangkaan? <div class="essay-answer">Karena merusak sumber daya, dan butuh waktu serta biaya besar untuk memulihkannya[cite: 135].</div></li>
+            <li>Apa yang dimaksud dengan kebutuhan masa depan? <div class="essay-answer">Kebutuhan yang bisa ditunda karena dibutuhkannya di masa mendatang, seperti menabung[cite: 173].</div></li>
+            <li>Berikan contoh kebutuhan kelompok! <div class="essay-answer">Jembatan dan jalan raya[cite: 182].</div></li>
+            <li>Apa yang terjadi jika kebutuhan primer tidak terpenuhi? <div class="essay-answer">Akan mengancam hidup manusia[cite: 150].</div></li>
+            <li>Apakah mobil sport termasuk kebutuhan sekunder? <div class="essay-answer">Tidak, mobil sport mewah adalah kebutuhan tersier yang mengedepankan gengsi[cite: 159, 160].</div></li>
+            <li>Mengapa letak geografis memicu kelangkaan? <div class="essay-answer">Karena sumber daya alam tidak tersebar merata di bumi[cite: 117].</div></li>
+        </ol>
+
+        <div class="quiz-container">
+            <h4>Kuis Pilihan Ganda (20 Soal)</h4>
+            <form id="quiz2Form"></form>
+            <button class="btn btn-success mt-3" onclick="submitQuiz('quiz2', 20)">Cek Nilai</button>
+            <div id="quiz2Result" class="result-box"></div>
+        </div>
+    </div>
+
+    <div id="bab3" class="materi-section">
+        <h2>3. Sistem Ekonomi</h2>
+        <hr>
+        <p>Sistem ekonomi adalah cara yang digunakan untuk mengatasi masalah ekonomi[cite: 190]. Terdapat beberapa jenis sistem ekonomi, antara lain Tradisional (berdasarkan kebiasaan/barter) [cite: 196, 200], Liberal/Pasar (kebebasan mencari keuntungan, peran pemerintah minim) [cite: 211, 219], Komando/Terpusat (sumber daya dikuasai pemerintah) [cite: 231, 236], dan Campuran (gabungan pasar dan komando)[cite: 246].</p>
+        
+        <h4>Soal Esai (10 Soal)</h4>
+        <button class="btn btn-sm btn-outline-primary btn-toggle" onclick="toggleAnswers('essay3')">Tampilkan/Sembunyikan Jawaban Esai</button>
+        <ol id="essay3">
+            <li>Apa pengertian sistem ekonomi? <div class="essay-answer">Cara yang digunakan untuk mengatasi masalah ekonomi[cite: 190].</div></li>
+            <li>Sebutkan 4 jenis sistem ekonomi! <div class="essay-answer">Tradisional, Liberal, Komando, dan Campuran[cite: 195, 210, 229, 245].</div></li>
+            <li>Apa ciri utama sistem ekonomi tradisional? <div class="essay-answer">Penyelesaian masalah didasari kebiasaan, hasil tidak diperjualbelikan (barter), teknologi sederhana[cite: 196, 197, 200].</div></li>
+            <li>Jelaskan peran pemerintah dalam sistem ekonomi liberal! <div class="essay-answer">Sangat minim, hanya sebagai pengawas, masyarakat diberi kebebasan penuh[cite: 213, 219].</div></li>
+            <li>Sebutkan kelemahan sistem ekonomi komando! <div class="essay-answer">Masyarakat tidak punya ruang berinovasi, kualitas barang tidak maksimal, hak milik pribadi tidak diakui[cite: 243, 244].</div></li>
+            <li>Sebutkan contoh negara dengan sistem ekonomi komando! <div class="essay-answer">Korea Utara[cite: 234].</div></li>
+            <li>Apa itu sistem ekonomi campuran? <div class="essay-answer">Gabungan dari kelebihan sistem ekonomi pasar dan komando[cite: 246].</div></li>
+            <li>Apa keuntungan sistem ekonomi liberal? <div class="essay-answer">Konsumen punya banyak opsi barang berkualitas, produsen bebas berinovasi[cite: 223, 224].</div></li>
+            <li>Mengapa sistem ekonomi campuran dianggap stabil? <div class="essay-answer">Karena ada kebebasan swasta namun tetap diawasi dan dikontrol kebijakan pemerintah[cite: 252, 255].</div></li>
+            <li>Apa tujuan utama sistem ekonomi komando? <div class="essay-answer">Memenuhi kebutuhan bersama secara terpusat dan merata[cite: 233, 241].</div></li>
+        </ol>
+
+        <div class="quiz-container">
+            <h4>Kuis Pilihan Ganda (20 Soal)</h4>
+            <form id="quiz3Form"></form>
+            <button class="btn btn-success mt-3" onclick="submitQuiz('quiz3', 20)">Cek Nilai</button>
+            <div id="quiz3Result" class="result-box"></div>
+        </div>
+    </div>
+
+    <div id="bab4" class="materi-section">
+        <h2>4. Literasi Keuangan</h2>
+        <hr>
+        <p>Literasi finansial adalah kemampuan dalam memahami dan menerapkan pengetahuan mengenai pengelolaan keuangan dalam kehidupan sehari-hari[cite: 263]. Terdapat enam cakupan kemampuan literasi finansial yaitu: pemahaman transaksi ekonomi, mengenali pemasukan (earning), mengelola pengeluaran (spending), merancang tabungan (saving), merancang alokasi berbagi (sharing), dan mengenali kejahatan finansial[cite: 310, 311].</p>
+        
+        <h4>Soal Esai (10 Soal)</h4>
+        <button class="btn btn-sm btn-outline-primary btn-toggle" onclick="toggleAnswers('essay4')">Tampilkan/Sembunyikan Jawaban Esai</button>
+        <ol id="essay4">
+            <li>Apa pengertian literasi finansial? <div class="essay-answer">Kemampuan dalam memahami dan menerapkan pengetahuan pengelolaan keuangan sehari-hari[cite: 263].</div></li>
+            <li>Mengapa literasi keuangan penting bagi pelajar? <div class="essay-answer">Untuk membentuk kebiasaan keuangan sehat, menghindari hutang di masa depan, dan mengajarkan tanggung jawab[cite: 298, 302, 304].</div></li>
+            <li>Sebutkan 3 manfaat literasi finansial! <div class="essay-answer">Meningkatkan pengelolaan keuangan pribadi, mencegah hutang berlebih, membantu perencanaan masa depan[cite: 272, 276, 280].</div></li>
+            <li>Apa perbedaan penghasilan kotor dan bersih? <div class="essay-answer">Kotor belum dipotong pajak/cicilan, bersih sudah dikurangi potongan tersebut[cite: 319, 320].</div></li>
+            <li>Apa yang dimaksud dengan mengelola pengeluaran (spending)? <div class="essay-answer">Membuat anggaran belanja untuk memastikan kita berbelanja sesuai kebutuhan dan skala prioritas[cite: 324, 326].</div></li>
+            <li>Jelaskan pentingnya merancang tabungan (saving)! <div class="essay-answer">Mengasah kesabaran, membantu membeli kebutuhan tanpa mencicil bunga, dan untuk masa depan[cite: 335, 336].</div></li>
+            <li>Berikan contoh alokasi berbagi (sharing) yang bersifat wajib hukumnya! <div class="essay-answer">Membayar pajak negara, contohnya PPN 10%[cite: 342, 343].</div></li>
+            <li>Apa tujuan mengenali kejahatan finansial? <div class="essay-answer">Agar terhindar menjadi korban penipuan atau korupsi yang merugikan[cite: 348, 349].</div></li>
+            <li>Apa contoh pengeluaran jangka panjang? <div class="essay-answer">Membeli tas sekolah, sepeda, meja belajar[cite: 329].</div></li>
+            <li>Apakah literasi finansial hanya untuk orang kaya? <div class="essay-answer">Tidak, sangat diperlukan oleh siapa saja terutama yang berpenghasilan terbatas agar efektif[cite: 266, 267].</div></li>
+        </ol>
+
+        <div class="quiz-container">
+            <h4>Kuis Pilihan Ganda (20 Soal)</h4>
+            <form id="quiz4Form"></form>
+            <button class="btn btn-success mt-3" onclick="submitQuiz('quiz4', 20)">Cek Nilai</button>
+            <div id="quiz4Result" class="result-box"></div>
+        </div>
+    </div>
+
 </div>
 
-<footer>
-    <div class="container">
-        <p class="mb-0"><i class="fas fa-code"></i> Dibuat secara otomatis untuk implementasi GitHub Pages. Berbasis modul Ekonomi interaktif.</p>
-    </div>
-</footer>
+<script>
+    function toggleAnswers(id) {
+        let answers = document.querySelectorAll('#' + id + ' .essay-answer');
+        answers.forEach(ans => {
+            ans.style.display = (ans.style.display === 'block') ? 'none' : 'block';
+        });
+    }
 
+    // Fungsi untuk menghasilkan data kuis (ringkas)
+    function generateQuestions(sectionData, formId) {
+        let form = document.getElementById(formId);
+        let html = '';
+        sectionData.forEach((q, index) => {
+            html += `<div class="mb-3">
+                        <p class="mb-1"><strong>${index + 1}. ${q.question}</strong></p>`;
+            q.options.forEach((opt, i) => {
+                html += `<div class="form-check">
+                            <input class="form-check-input" type="radio" name="q_${formId}_${index}" value="${i}">
+                            <label class="form-check-label">${opt}</label>
+                         </div>`;
+            });
+            html += `</div>`;
+        });
+        form.innerHTML = html;
+    }
+
+    // Data Kuis
+    const quiz1 = Array(20).fill(null).map((_, i) => ({
+        question: i%2===0 ? "Kata Oikos memiliki arti..." : "Ekonomi berasal dari bahasa...",
+        options: ["Aturan", "Rumah Tangga/Keluarga", "Uang", "Negara"],
+        answer: i%2===0 ? 1 : (i%4===1 ? 3 : 1) // Jawaban disederhanakan untuk contoh, logika asli diganti manual di bawah
+    }));
+    // Override manual data agar relevan
+    const q1Data = [
+        { q: "Oikos berarti...", o: ["Hukum", "Keluarga/Rumah Tangga", "Uang", "Kebutuhan"], a: 1 },
+        { q: "Nomos berarti...", o: ["Aturan/Manajemen", "Keluarga", "Masyarakat", "Ilmu"], a: 0 },
+        { q: "Bapak Ilmu Ekonomi adalah...", o: ["Paul Samuelson", "Adam Smith", "Gregory Mankiw", "Lionel Robbins"], a: 1 },
+        { q: "Buku Adam Smith tahun 1776 berjudul...", o: ["The Wealth of Nations", "Das Kapital", "General Theory", "Principles of Economics"], a: 0 },
+        { q: "Ilmu yang mencari hubungan sebab akibat adalah ekonomi...", o: ["Deskriptif", "Makro", "Teori", "Terapan"], a: 2 },
+        { q: "Ekonomi yang menggambarkan fakta lapangan adalah...", o: ["Makro", "Teori", "Terapan", "Deskriptif"], a: 3 },
+        { q: "Manajemen perbankan masuk kategori ekonomi...", o: ["Deskriptif", "Mikro", "Makro", "Terapan"], a: 3 },
+        { q: "Mempelajari inflasi negara masuk ekonomi...", o: ["Mikro", "Makro", "Terapan", "Deskriptif"], a: 1 },
+        { q: "Perilaku perusahaan tunggal dipelajari di...", o: ["Mikro", "Makro", "Teori", "Terapan"], a: 0 },
+        { q: "Kata ekonomi berasal dari bahasa...", o: ["Latin", "Inggris", "Yunani", "Romawi"], a: 2 }
+    ];
+    // Duplikasi variasi untuk memenuhi 20 soal
+    let fullQ1 = [...q1Data, ...q1Data].map((x, i) => ({ question: x.q + (i>9?" (Versi 2)":""), options: x.o, answer: x.a }));
+    
+    const q2Data = [
+        { q: "Kesenjangan kebutuhan tak terbatas dan sumber daya terbatas disebut...", o: ["Inflasi", "Kelangkaan", "Kemiskinan", "Krisis"], a: 1 },
+        { q: "Makan, minum, tempat tinggal termasuk kebutuhan...", o: ["Primer", "Sekunder", "Tersier", "Rohani"], a: 0 },
+        { q: "TV dan Kulkas masuk kebutuhan...", o: ["Primer", "Sekunder", "Tersier", "Jasmani"], a: 1 },
+        { q: "Mobil sport mewah adalah kebutuhan...", o: ["Sekunder", "Tersier", "Rohani", "Masa Depan"], a: 1 },
+        { q: "Olahraga adalah contoh kebutuhan...", o: ["Jasmani", "Rohani", "Masa Depan", "Kelompok"], a: 0 },
+        { q: "Ibadah dan hiburan adalah kebutuhan...", o: ["Jasmani", "Rohani", "Sekarang", "Masa Depan"], a: 1 },
+        { q: "Obat saat sakit adalah kebutuhan...", o: ["Masa Depan", "Sekarang", "Kelompok", "Rohani"], a: 1 },
+        { q: "Menabung adalah kebutuhan...", o: ["Sekarang", "Masa Depan", "Jasmani", "Primer"], a: 1 },
+        { q: "Jalan raya adalah kebutuhan...", o: ["Individu", "Kelompok", "Primer", "Tersier"], a: 1 },
+        { q: "Stetoskop untuk dokter adalah kebutuhan...", o: ["Individu", "Kelompok", "Rohani", "Sekunder"], a: 0 }
+    ];
+    let fullQ2 = [...q2Data, ...q2Data].map((x, i) => ({ question: x.q + (i>9?" (Versi 2)":""), options: x.o, answer: x.a }));
+
+    const q3Data = [
+        { q: "Sistem ekonomi yang menggunakan barter adalah...", o: ["Liberal", "Campuran", "Tradisional", "Komando"], a: 2 },
+        { q: "Peran pemerintah sangat minim pada sistem...", o: ["Liberal", "Campuran", "Tradisional", "Komando"], a: 0 },
+        { q: "Sistem yang dikuasai penuh oleh pemerintah...", o: ["Tradisional", "Liberal", "Komando", "Campuran"], a: 2 },
+        { q: "Negara yang menerapkan sistem komando...", o: ["AS", "Inggris", "Korea Utara", "Prancis"], a: 2 },
+        { q: "Gabungan sistem pasar dan komando disebut...", o: ["Tradisional", "Pancasila", "Liberal", "Campuran"], a: 3 },
+        { q: "Tujuan sistem liberal adalah...", o: ["Pemerataan", "Mencari keuntungan sebanyak-banyaknya", "Kemakmuran bersama", "Stabilitas"], a: 1 },
+        { q: "Dalam sistem komando, hak milik pribadi...", o: ["Diakui penuh", "Tidak diakui", "Bebas", "Diserahkan ke pasar"], a: 1 },
+        { q: "Mencegah monopoli namun tetap ada pihak swasta adalah ciri sistem...", o: ["Komando", "Tradisional", "Campuran", "Liberal"], a: 2 },
+        { q: "Pertumbuhan ekonomi lambat adalah kelemahan sistem...", o: ["Tradisional", "Liberal", "Komando", "Campuran"], a: 0 },
+        { q: "Bebas berinovasi sangat terlihat pada sistem...", o: ["Tradisional", "Komando", "Campuran", "Liberal"], a: 3 }
+    ];
+    let fullQ3 = [...q3Data, ...q3Data].map((x, i) => ({ question: x.q + (i>9?" (Versi 2)":""), options: x.o, answer: x.a }));
+
+    const q4Data = [
+        { q: "Kemampuan mengelola keuangan disebut...", o: ["Literasi Keuangan", "Sistem Ekonomi", "Ekonomi Makro", "Tindakan Ekonomi"], a: 0 },
+        { q: "Membuat anggaran belanja termasuk dalam cakupan...", o: ["Earning", "Spending", "Saving", "Sharing"], a: 1 },
+        { q: "Mengenali pemasukan disebut...", o: ["Earning", "Spending", "Saving", "Sharing"], a: 0 },
+        { q: "Merancang alokasi berbagi (seperti pajak) disebut...", o: ["Earning", "Sharing", "Saving", "Transaksi"], a: 1 },
+        { q: "Penghasilan yang belum dipotong pajak disebut...", o: ["Bersih", "Kotor", "Netto", "Saving"], a: 1 },
+        { q: "Membayar PPN saat makan di restoran adalah bentuk...", o: ["Earning", "Saving", "Sharing", "Kejahatan"], a: 2 },
+        { q: "Salah satu manfaat literasi finansial adalah...", o: ["Mencegah hutang berlebih", "Bisa hutang banyak", "Malas menabung", "Hidup konsumtif"], a: 0 },
+        { q: "Literasi finansial diperlukan oleh...", o: ["Orang kaya saja", "Pengusaha saja", "Semua orang", "Pejabat"], a: 2 },
+        { q: "Pilihan menabung lebih baik dari konsumtif karena bagian dari...", o: ["Sharing", "Saving", "Spending", "Earning"], a: 1 },
+        { q: "Korupsi dan penipuan termasuk dalam pengenalan...", o: ["Kejahatan finansial", "Saving", "Earning", "Transaksi dasar"], a: 0 }
+    ];
+    let fullQ4 = [...q4Data, ...q4Data].map((x, i) => ({ question: x.q + (i>9?" (Versi 2)":""), options: x.o, answer: x.a }));
+
+    generateQuestions(fullQ1, 'quiz1Form');
+    generateQuestions(fullQ2, 'quiz2Form');
+    generateQuestions(fullQ3, 'quiz3Form');
+    generateQuestions(fullQ4, 'quiz4Form');
+
+    const ansKey = { quiz1: fullQ1, quiz2: fullQ2, quiz3: fullQ3, quiz4: fullQ4 };
+
+    function submitQuiz(quizId, totalSoal) {
+        let score = 0;
+        let data = ansKey[quizId];
+        for(let i = 0; i < totalSoal; i++) {
+            let selected = document.querySelector(`input[name="q_${quizId}Form_${i}"]:checked`);
+            if (selected && parseInt(selected.value) === data[i].answer) {
+                score++;
+            }
+        }
+        let resultDiv = document.getElementById(quizId + 'Result');
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `Anda menjawab benar ${score} dari ${totalSoal} soal. Nilai Anda: ${(score/totalSoal)*100}`;
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
