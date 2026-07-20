@@ -3,35 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modul Ekonomi Kelas 10 - Semester 1 Lengkap</title>
+    <title>Modul Ekonomi Kelas X - Semester 1</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { padding-top: 70px; background-color: #f4f6f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .materi-section { background: #ffffff; padding: 40px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .quiz-container { background: #f8f9fa; padding: 25px; border-radius: 8px; margin-top: 30px; border-left: 5px solid #0d6efd; }
-        .essay-container { background: #e9ecef; padding: 25px; border-radius: 8px; margin-top: 30px; border-left: 5px solid #198754; }
-        .essay-answer { display: none; color: #0f5132; background-color: #d1e7dd; padding: 10px; border-radius: 5px; margin-top: 10px; font-weight: 500; }
-        .result-box { display: none; padding: 15px; background: #cff4fc; color: #055160; border-radius: 5px; font-weight: bold; margin-top: 20px; font-size: 1.1em; text-align: center; border: 1px solid #b6effb;}
-        h2 { color: #0d6efd; font-weight: bold; margin-bottom: 20px;}
-        h3 { color: #333; margin-top: 25px; font-weight: bold; border-bottom: 2px solid #e9ecef; padding-bottom: 10px; }
-        h4 { color: #444; margin-top: 25px; font-weight: bold; }
-        p, li { line-height: 1.7; color: #444; font-size: 1.05em; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f7f9fa; 
+            padding-top: 80px; 
+            color: #334155;
+        }
+        
+        /* Navbar ala EdTech */
+        .navbar-custom {
+            background-color: #14b4c6; /* Warna teal referensi */
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        .navbar-custom .navbar-brand { font-weight: 700; color: #fff; font-size: 1.4rem; }
+        .navbar-custom .nav-link { color: rgba(255,255,255,0.9); font-weight: 500; margin-left: 15px; }
+        .navbar-custom .nav-link:hover { color: #fff; }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+        }
+        .hero-title { font-weight: 700; color: #1e293b; }
+        .hero-title i { color: #f59e0b; margin-right: 10px; }
+
+        /* Card Bab */
+        .bab-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #ffffff;
+            margin-bottom: 50px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Header Warna-warni per Bab */
+        .header-bab1 { background: linear-gradient(to right, #e0f2fe, #bae6fd); padding: 40px; position: relative;}
+        .header-bab2 { background: linear-gradient(to right, #dcfce7, #bbf7d0); padding: 40px; position: relative;}
+        .header-bab3 { background: linear-gradient(to right, #f3e8ff, #e9d5ff); padding: 40px; position: relative;}
+        .header-bab4 { background: linear-gradient(to right, #ffedd5, #fed7aa); padding: 40px; position: relative;}
+        
+        .header-icon {
+            font-size: 4rem;
+            position: absolute;
+            right: 40px;
+            bottom: 20px;
+            opacity: 0.2;
+        }
+
+        .badge-custom {
+            background-color: #4f46e5; /* Ungu/Biru khas tag */
+            color: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .badge-custom i { margin-right: 6px; }
+
+        .bab-title { font-weight: 700; color: #1e293b; margin: 0; font-size: 1.8rem;}
+        
+        /* Konten Materi */
+        .bab-content { padding: 40px; }
+        .bab-content h3 { font-weight: 600; color: #334155; margin-top: 30px; margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center;}
+        .bab-content h3 i { margin-right: 10px; color: #14b4c6; font-size: 1.1rem; }
+        .bab-content p, .bab-content li { line-height: 1.8; font-size: 1.05rem; }
+
+        /* Box Evaluasi (Esai & Kuis) */
+        .eval-box {
+            background-color: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 35px;
+            border: 1px solid #e2e8f0;
+        }
+        .eval-title { font-weight: 700; color: #1e293b; margin-bottom: 20px; font-size: 1.2rem;}
+        
+        /* Jawaban Esai */
+        .essay-answer { 
+            display: none; 
+            color: #047857; 
+            background-color: #d1fae5; 
+            padding: 12px 15px; 
+            border-radius: 8px; 
+            margin-top: 10px; 
+            font-weight: 500;
+            border-left: 4px solid #10b981;
+        }
+        
+        .btn-toggle-essay {
+            background-color: #fff;
+            color: #4f46e5;
+            border: 1px solid #4f46e5;
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: all 0.2s;
+        }
+        .btn-toggle-essay:hover { background-color: #4f46e5; color: #fff; }
+
+        /* Kuis Pilihan Ganda */
+        .form-check { margin-bottom: 10px; }
+        .form-check-label { cursor: pointer; }
+        .form-check-input:checked { background-color: #14b4c6; border-color: #14b4c6; }
+        
+        .btn-submit-quiz {
+            background-color: #14b4c6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 600;
+            width: 100%;
+            transition: 0.3s;
+        }
+        .btn-submit-quiz:hover { background-color: #0e93a3; }
+
+        .result-box { 
+            display: none; 
+            padding: 20px; 
+            background: #e0f2fe; 
+            color: #0369a1; 
+            border-radius: 12px; 
+            font-weight: 600; 
+            margin-top: 20px; 
+            text-align: center; 
+            border: 2px dashed #7dd3fc;
+        }
+        .score-display { font-size: 2rem; font-weight: 700; display: block; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Modul Ekonomi X</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap me-2"></i>Modul Ekonomi X</a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon" style="filter: brightness(0) invert(1);"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#bab1">1. Pengertian Ekonomi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bab2">2. Kelangkaan & Kebutuhan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bab3">3. Sistem Ekonomi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#bab4">4. Literasi Keuangan</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bab1">Bab 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bab2">Bab 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bab3">Bab 3</a></li>
+                <li class="nav-item"><a class="nav-link" href="#bab4">Bab 4</a></li>
             </ul>
         </div>
     </div>
@@ -39,295 +172,323 @@
 
 <div class="container">
 
-    <!-- BAB 1: PENGERTIAN ILMU EKONOMI -->
-    <div id="bab1" class="materi-section">
-        <h2>Bab 1: Pengertian & Sejarah Ilmu Ekonomi</h2>
-        
-        <h3>A. Pengertian Ilmu Ekonomi</h3>
-        <p>Kata "ekonomi" sebenarnya berasal dari bahasa Yunani, yaitu <i>oikonomia</i>. Kata ini terbentuk dari dua bagian: <i>oikos</i> yang artinya "rumah tangga", dan <i>nomos</i> yang berarti "aturan". Jadi secara sederhana, ekonomi bisa diartikan sebagai ilmu yang membahas gimana caranya manusia mengatur sumber daya yang ada untuk mencukupi kebutuhan hidupnya.</p>
-        <p>Makin ke sini, kebutuhan manusia terus bertambah dan nggak ada habisnya. Di sinilah peran Ilmu Ekonomi jadi penting banget, karena lewat ilmu ini, kita bisa tahu cara memenuhi kebutuhan lewat barang dan jasa yang tersedia. Ilmu ekonomi adalah disiplin ilmu yang mempelajari produksi, distribusi, dan konsumsi barang dan jasa.</p>
-
-        <h3>B. Pengertian Ilmu Ekonomi Menurut Para Ahli</h3>
-        <ul>
-            <li><strong>Adam Smith:</strong> Ilmu ekonomi pertama kali dicetuskan oleh Adam Smith pada bukunya yang berjudul <i>The Wealth of Nations</i> pada tahun 1776. Menurutnya, ilmu ekonomi adalah ilmu sistematis yang mempelajari tingkah laku manusia dalam usahanya untuk mengalokasikan sumber daya yang terbatas untuk mencapai tujuan tertentu.</li>
-            <li><strong>Alfred Marshall:</strong> Ilmu ekonomi adalah studi tentang manusia, baik secara individu maupun kolektif, dalam melakukan aktivitas ekonomi dan kaitannya dengan penggunaan barang-barang material.</li>
-            <li><strong>Lionel Robbins:</strong> Ilmu ekonomi adalah ilmu yang mempelajari tindakan manusia dalam memilih serta memanfaatkan sumber daya yang terbatas untuk memenuhi kebutuhan yang tidak terbatas.</li>
-            <li><strong>Paul Samuelson:</strong> Studi tentang bagaimana manusia membuat keputusan dalam kondisi ketidakpastian. Ia menjelaskan bahwa manusia membuat pilihan dengan sumber daya terbatas yang diolah menghasilkan barang dan jasa.</li>
-            <li><strong>Milton Friedman:</strong> Ilmu yang mempelajari cara manusia mencapai tujuan mereka dengan menggunakan sumber daya yang terbatas.</li>
-            <li><strong>John Maynard Keynes:</strong> Ilmu yang mempelajari tentang tingkat kemakmuran suatu negara yang erat kaitannya dengan bagaimana intervensi pemerintah dapat mempengaruhi kondisi ekonomi tertentu.</li>
-            <li><strong>John Stuart Mill:</strong> Ilmu yang mempelajari beragam seluk beluk penagihan dan pengeluaran, serta membahas tentang kegiatan produksi dan distribusi kekayaan.</li>
-        </ul>
-        <p><strong>Inti Pendapat Para Ahli:</strong> Terdapat pokok pikiran yang sama yaitu: sumber daya bersifat terbatas (scarcity), kebutuhan manusia tidak terbatas, manusia harus membuat pilihan (choice), tujuannya untuk mencapai kesejahteraan/kemakmuran, serta mempelajari kegiatan produksi, distribusi, dan konsumsi.</p>
-
-        <h3>C. Tujuan dan Manfaat Ilmu Ekonomi</h3>
-        <p>Tujuan ilmu ekonomi adalah membantu kita paham cara masyarakat hingga negara mengatur sumber daya yang terbatas untuk memenuhi kebutuhan yang tidak ada habisnya. Manfaat ilmu ekonomi antara lain:</p>
-        <ol>
-            <li><strong>Membantu mengambil keputusan bijak:</strong> Mempertimbangkan pilihan terbaik antara kebutuhan dan keinginan sesaat.</li>
-            <li><strong>Mengelola keuangan dengan lebih baik:</strong> Mengatur pengeluaran, tabungan, dan investasi secara efisien.</li>
-            <li><strong>Memahami pasar dan harga:</strong> Paham kenapa harga naik-turun dan pengaruh permintaan serta penawaran.</li>
-            <li><strong>Mendorong pertumbuhan ekonomi:</strong> Membantu pemerintah bikin kebijakan yang mendorong lapangan kerja.</li>
-            <li><strong>Mengurangi pengangguran dan kemiskinan:</strong> Merancang solusi jangka panjang untuk distribusi sumber daya.</li>
-            <li><strong>Memperkirakan dampak kebijakan:</strong> Memprediksi efek kebijakan seperti subsidi atau pajak.</li>
-            <li><strong>Mendorong inovasi dan efisiensi:</strong> Menciptakan produk lebih baik dengan biaya lebih efisien.</li>
-        </ol>
-
-        <h3>D. Pembagian Ilmu Ekonomi</h3>
-        <p>Menurut Alfred W. Stonier dan Douglas C. Hague, ilmu ekonomi dibagi menjadi 3 kelompok:</p>
-        <ul>
-            <li><strong>Ilmu Ekonomi Deskriptif (Descriptive Economic):</strong> Analisis yang menggambarkan kondisi sebenarnya berdasarkan fakta dalam perekonomian. Misalnya, gambaran kondisi krisis moneter di Indonesia tahun 1998.</li>
-            <li><strong>Ilmu Ekonomi Teori (Economics Theory):</strong> Berusaha menjelaskan, mencari pengertian, hubungan sebab akibat, dan cara kerja sistem ekonomi. Dibagi menjadi dua:
-                <ul>
-                    <li><i>Ekonomi Mikro:</i> Membahas bagian tertentu/kecil dari suatu perekonomian (misal: perilaku konsumen, perusahaan).</li>
-                    <li><i>Ekonomi Makro:</i> Mempelajari perekonomian dalam ruang lingkup secara menyeluruh dan lebih besar (misal: inflasi, pengangguran negara).</li>
-                </ul>
-            </li>
-            <li><strong>Ilmu Ekonomi Terapan (Applied Economics):</strong> Analisis teori ekonomi untuk merumuskan kebijakan-kebijakan dan pedoman yang tepat untuk menangani masalah tertentu. Bersifat praktis, misalnya ekonomi perusahaan, ekonomi perbankan, dan ekonomi moneter.</li>
-        </ul>
-
-        <!-- ESSAY BAB 1 -->
-        <div class="essay-container">
-            <h4>Soal Esai - Bab 1</h4>
-            <ol>
-                <li>Jelaskan asal usul kata "ekonomi" beserta artinya! <div class="essay-answer">Berasal dari bahasa Yunani "oikonomia", dari kata "oikos" (rumah tangga) dan "nomos" (aturan). Artinya aturan atau manajemen rumah tangga.</div></li>
-                <li>Sebutkan 3 pokok pikiran utama dari berbagai definisi ilmu ekonomi menurut para ahli! <div class="essay-answer">Sumber daya bersifat terbatas (scarcity), kebutuhan manusia tidak terbatas, dan manusia harus membuat pilihan (choice).</div></li>
-                <li>Siapakah tokoh yang dikenal sebagai pencetus ilmu ekonomi pertama kali dan apa judul bukunya? <div class="essay-answer">Adam Smith, melalui bukunya "The Wealth of Nations" yang terbit pada tahun 1776.</div></li>
-                <li>Jelaskan pengertian ilmu ekonomi menurut Lionel Robbins! <div class="essay-answer">Ilmu yang mempelajari tindakan manusia dalam memilih serta memanfaatkan sumber daya yang terbatas untuk memenuhi kebutuhan yang tidak terbatas.</div></li>
-                <li>Apa tujuan utama dipelajarinya ilmu ekonomi? <div class="essay-answer">Untuk membantu memahami cara mengatur sumber daya yang terbatas guna memenuhi kebutuhan yang tak terbatas demi mencapai kesejahteraan atau kemakmuran.</div></li>
-                <li>Sebutkan 4 manfaat mempelajari ilmu ekonomi dalam kehidupan sehari-hari! <div class="essay-answer">Membantu mengambil keputusan bijak, mengelola keuangan dengan baik, memahami cara kerja pasar dan harga, serta mendorong inovasi dan efisiensi.</div></li>
-                <li>Jelaskan perbedaan antara Ilmu Ekonomi Deskriptif dan Ilmu Ekonomi Teori! <div class="essay-answer">Ekonomi deskriptif menggambarkan kondisi fakta ekonomi di lapangan (misal data krisis). Sedangkan ekonomi teori mencari penjelasan, hubungan sebab-akibat, dan cara kerja sistem ekonomi secara umum.</div></li>
-                <li>Berikan masing-masing 1 contoh ruang lingkup ekonomi mikro dan ekonomi makro! <div class="essay-answer">Mikro: Keputusan seorang individu dalam membeli sepatu baru. Makro: Kebijakan pemerintah dalam menekan angka inflasi nasional.</div></li>
-                <li>Apa yang dimaksud dengan Ilmu Ekonomi Terapan? Berikan contohnya! <div class="essay-answer">Penerapan analisis teori ekonomi untuk merumuskan kebijakan praktis guna menangani masalah tertentu. Contoh: ilmu ekonomi perbankan dan ekonomi perusahaan.</div></li>
-                <li>Mengapa ilmu ekonomi sangat dibutuhkan meskipun seseorang bukan pengusaha? <div class="essay-answer">Karena setiap orang (termasuk pelajar atau pekerja) memiliki kebutuhan yang tak terbatas namun dihadapkan pada sumber daya (seperti uang) yang terbatas, sehingga butuh ilmu ini untuk mengelola keuangannya agar tidak berantakan.</div></li>
-            </ol>
-            <button class="btn btn-outline-success mt-2" onclick="toggleAnswers(this)">Tampilkan/Sembunyikan Kunci Jawaban Esai</button>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div>
+            <h2 class="hero-title"><i class="fas fa-star"></i> Pengantar Ilmu Ekonomi Kelas X</h2>
+            <p class="text-muted mt-2 mb-0" style="font-size: 1.1rem;">Pelajari konsep dasar ekonomi, kelangkaan, sistem ekonomi, hingga literasi keuangan secara interaktif dan menyenangkan.</p>
         </div>
+    </div>
 
-        <!-- MCQ BAB 1 -->
-        <div class="quiz-container">
-            <h4>Kuis Pilihan Ganda - Bab 1</h4>
-            <form id="quiz1Form"></form>
-            <button type="button" class="btn btn-primary mt-3 w-100" onclick="submitQuiz('quiz1Form', 20)">Cek Nilai Bab 1</button>
-            <div id="quiz1FormResult" class="result-box"></div>
+    <!-- BAB 1: PENGERTIAN ILMU EKONOMI -->
+    <div id="bab1" class="bab-card">
+        <div class="header-bab1">
+            <div class="badge-custom"><i class="fas fa-book-open"></i> Bab 1</div>
+            <h2 class="bab-title">Pengertian & Sejarah Ilmu Ekonomi</h2>
+            <i class="fas fa-chart-pie header-icon text-info"></i>
+        </div>
+        
+        <div class="bab-content">
+            <h3><i class="fas fa-circle-play"></i> A. Pengertian Ilmu Ekonomi</h3>
+            <p>Kata "ekonomi" sebenarnya berasal dari bahasa Yunani, yaitu <i>oikonomia</i>. Kata ini terbentuk dari dua bagian: <i>oikos</i> yang artinya "rumah tangga", dan <i>nomos</i> yang berarti "aturan". Jadi secara sederhana, ekonomi bisa diartikan sebagai ilmu yang membahas gimana caranya manusia mengatur sumber daya yang ada untuk mencukupi kebutuhan hidupnya.</p>
+            <p>Makin ke sini, kebutuhan manusia terus bertambah dan nggak ada habisnya. Di sinilah peran Ilmu Ekonomi jadi penting banget, karena lewat ilmu ini, kita bisa tahu cara memenuhi kebutuhan lewat barang dan jasa yang tersedia. Ilmu ekonomi adalah disiplin ilmu yang mempelajari produksi, distribusi, dan konsumsi barang dan jasa.</p>
+
+            <h3><i class="fas fa-users"></i> B. Pengertian Ilmu Ekonomi Menurut Para Ahli</h3>
+            <ul>
+                <li><strong>Adam Smith:</strong> Ilmu ekonomi pertama kali dicetuskan oleh Adam Smith pada bukunya yang berjudul <i>The Wealth of Nations</i> pada tahun 1776. Menurutnya, ilmu ekonomi adalah ilmu sistematis yang mempelajari tingkah laku manusia dalam usahanya untuk mengalokasikan sumber daya yang terbatas untuk mencapai tujuan tertentu.</li>
+                <li><strong>Alfred Marshall:</strong> Ilmu ekonomi adalah studi tentang manusia, baik secara individu maupun kolektif, dalam melakukan aktivitas ekonomi dan kaitannya dengan penggunaan barang-barang material.</li>
+                <li><strong>Lionel Robbins:</strong> Ilmu ekonomi adalah ilmu yang mempelajari tindakan manusia dalam memilih serta memanfaatkan sumber daya yang terbatas untuk memenuhi kebutuhan yang tidak terbatas.</li>
+                <li><strong>Paul Samuelson:</strong> Studi tentang bagaimana manusia membuat keputusan dalam kondisi ketidakpastian. Ia menjelaskan bahwa manusia membuat pilihan dengan sumber daya terbatas yang diolah menghasilkan barang dan jasa.</li>
+                <li><strong>Milton Friedman:</strong> Ilmu yang mempelajari cara manusia mencapai tujuan mereka dengan menggunakan sumber daya yang terbatas.</li>
+                <li><strong>John Maynard Keynes:</strong> Ilmu yang mempelajari tentang tingkat kemakmuran suatu negara yang erat kaitannya dengan bagaimana intervensi pemerintah dapat mempengaruhi kondisi ekonomi tertentu.</li>
+                <li><strong>John Stuart Mill:</strong> Ilmu yang mempelajari beragam seluk beluk penagihan dan pengeluaran, serta membahas tentang kegiatan produksi dan distribusi kekayaan.</li>
+            </ul>
+
+            <h3><i class="fas fa-bullseye"></i> C. Tujuan dan Manfaat Ilmu Ekonomi</h3>
+            <p>Tujuan ilmu ekonomi adalah membantu kita paham cara masyarakat hingga negara mengatur sumber daya yang terbatas untuk memenuhi kebutuhan yang tidak ada habisnya. Manfaat ilmu ekonomi antara lain:</p>
+            <ol>
+                <li><strong>Membantu mengambil keputusan bijak:</strong> Mempertimbangkan pilihan terbaik antara kebutuhan dan keinginan sesaat.</li>
+                <li><strong>Mengelola keuangan dengan lebih baik:</strong> Mengatur pengeluaran, tabungan, dan investasi secara efisien.</li>
+                <li><strong>Memahami pasar dan harga:</strong> Paham kenapa harga naik-turun dan pengaruh permintaan serta penawaran.</li>
+                <li><strong>Mendorong pertumbuhan ekonomi:</strong> Membantu pemerintah bikin kebijakan yang mendorong lapangan kerja.</li>
+                <li><strong>Mengurangi pengangguran dan kemiskinan:</strong> Merancang solusi jangka panjang untuk distribusi sumber daya.</li>
+                <li><strong>Memperkirakan dampak kebijakan:</strong> Memprediksi efek kebijakan seperti subsidi atau pajak.</li>
+                <li><strong>Mendorong inovasi dan efisiensi:</strong> Menciptakan produk lebih baik dengan biaya lebih efisien.</li>
+            </ol>
+
+            <h3><i class="fas fa-sitemap"></i> D. Pembagian Ilmu Ekonomi</h3>
+            <p>Menurut Alfred W. Stonier dan Douglas C. Hague, ilmu ekonomi dibagi menjadi 3 kelompok:</p>
+            <ul>
+                <li><strong>Ilmu Ekonomi Deskriptif (Descriptive Economic):</strong> Analisis yang menggambarkan kondisi sebenarnya berdasarkan fakta dalam perekonomian. Misalnya, gambaran kondisi krisis moneter di Indonesia tahun 1998.</li>
+                <li><strong>Ilmu Ekonomi Teori (Economics Theory):</strong> Berusaha menjelaskan, mencari pengertian, hubungan sebab akibat, dan cara kerja sistem ekonomi. Dibagi menjadi dua:
+                    <ul>
+                        <li><i>Ekonomi Mikro:</i> Membahas bagian tertentu/kecil dari suatu perekonomian (misal: perilaku konsumen, perusahaan).</li>
+                        <li><i>Ekonomi Makro:</i> Mempelajari perekonomian dalam ruang lingkup secara menyeluruh dan lebih besar (misal: inflasi, pengangguran negara).</li>
+                    </ul>
+                </li>
+                <li><strong>Ilmu Ekonomi Terapan (Applied Economics):</strong> Analisis teori ekonomi untuk merumuskan kebijakan-kebijakan dan pedoman yang tepat untuk menangani masalah tertentu. Bersifat praktis, misalnya ekonomi perusahaan, ekonomi perbankan, dan ekonomi moneter.</li>
+            </ul>
+
+            <!-- ESSAY BAB 1 -->
+            <div class="eval-box shadow-sm">
+                <div class="eval-title"><i class="fas fa-pen-to-square text-primary me-2"></i> Latihan Esai Bab 1</div>
+                <ol>
+                    <li class="mb-2">Jelaskan asal usul kata "ekonomi" beserta artinya! <div class="essay-answer">Berasal dari bahasa Yunani "oikonomia", dari kata "oikos" (rumah tangga) dan "nomos" (aturan). Artinya aturan atau manajemen rumah tangga.</div></li>
+                    <li class="mb-2">Sebutkan 3 pokok pikiran utama dari berbagai definisi ilmu ekonomi menurut para ahli! <div class="essay-answer">Sumber daya bersifat terbatas (scarcity), kebutuhan manusia tidak terbatas, dan manusia harus membuat pilihan (choice).</div></li>
+                    <li class="mb-2">Siapakah tokoh yang dikenal sebagai pencetus ilmu ekonomi pertama kali dan apa judul bukunya? <div class="essay-answer">Adam Smith, melalui bukunya "The Wealth of Nations" yang terbit pada tahun 1776.</div></li>
+                    <li class="mb-2">Jelaskan pengertian ilmu ekonomi menurut Lionel Robbins! <div class="essay-answer">Ilmu yang mempelajari tindakan manusia dalam memilih serta memanfaatkan sumber daya yang terbatas untuk memenuhi kebutuhan yang tidak terbatas.</div></li>
+                    <li class="mb-2">Apa tujuan utama dipelajarinya ilmu ekonomi? <div class="essay-answer">Untuk membantu memahami cara mengatur sumber daya yang terbatas guna memenuhi kebutuhan yang tak terbatas demi mencapai kesejahteraan atau kemakmuran.</div></li>
+                    <li class="mb-2">Sebutkan 4 manfaat mempelajari ilmu ekonomi dalam kehidupan sehari-hari! <div class="essay-answer">Membantu mengambil keputusan bijak, mengelola keuangan dengan baik, memahami cara kerja pasar dan harga, serta mendorong inovasi dan efisiensi.</div></li>
+                    <li class="mb-2">Jelaskan perbedaan antara Ilmu Ekonomi Deskriptif dan Ilmu Ekonomi Teori! <div class="essay-answer">Ekonomi deskriptif menggambarkan kondisi fakta ekonomi di lapangan (misal data krisis). Sedangkan ekonomi teori mencari penjelasan, hubungan sebab-akibat, dan cara kerja sistem ekonomi secara umum.</div></li>
+                    <li class="mb-2">Berikan masing-masing 1 contoh ruang lingkup ekonomi mikro dan ekonomi makro! <div class="essay-answer">Mikro: Keputusan seorang individu dalam membeli sepatu baru. Makro: Kebijakan pemerintah dalam menekan angka inflasi nasional.</div></li>
+                    <li class="mb-2">Apa yang dimaksud dengan Ilmu Ekonomi Terapan? Berikan contohnya! <div class="essay-answer">Penerapan analisis teori ekonomi untuk merumuskan kebijakan praktis guna menangani masalah tertentu. Contoh: ilmu ekonomi perbankan dan ekonomi perusahaan.</div></li>
+                    <li class="mb-2">Mengapa ilmu ekonomi sangat dibutuhkan meskipun seseorang bukan pengusaha? <div class="essay-answer">Karena setiap orang (termasuk pelajar atau pekerja) memiliki kebutuhan yang tak terbatas namun dihadapkan pada sumber daya (seperti uang) yang terbatas, sehingga butuh ilmu ini untuk mengelola keuangannya agar tidak berantakan.</div></li>
+                </ol>
+                <button class="btn-toggle-essay mt-3" onclick="toggleAnswers(this)"><i class="fas fa-eye me-2"></i>Cek Kunci Jawaban</button>
+            </div>
+
+            <!-- MCQ BAB 1 -->
+            <div class="eval-box shadow-sm mt-4">
+                <div class="eval-title"><i class="fas fa-list-check text-primary me-2"></i> Kuis Pilihan Ganda Bab 1</div>
+                <form id="quiz1Form"></form>
+                <button type="button" class="btn-submit-quiz mt-4" onclick="submitQuiz('quiz1Form', 20)">Kumpulkan & Lihat Nilai</button>
+                <div id="quiz1FormResult" class="result-box"></div>
+            </div>
         </div>
     </div>
 
     <!-- BAB 2: KELANGKAAN & KEBUTUHAN -->
-    <div id="bab2" class="materi-section">
-        <h2>Bab 2: Kebutuhan Manusia dan Kelangkaan Sumber Daya</h2>
-        
-        <h3>A. Kelangkaan Sumber Daya Ekonomi</h3>
-        <p>Pernahkah kamu ingin membeli sesuatu tapi uang tidak cukup karena barang tersebut mahal atau langka (misalnya <i>limited edition</i>)? Hal itu adalah contoh kelangkaan.</p>
-        <p>Kelangkaan (scarcity) adalah kondisi ketika jumlah kebutuhan manusia tidak sebanding dengan alat pemenuhan kebutuhannya. Kelangkaan timbul karena barang yang kita inginkan jumlahnya terbatas, sedangkan keinginan manusia tidak terbatas. Kelangkaan memaksa manusia memutar otak agar membuat pilihan lain (substitusi) yang efisien.</p>
-        <p>Penyebab kelangkaan sumber daya ekonomi meliputi:</p>
-        <ul>
-            <li><strong>Perbedaan Letak Geografis:</strong> Sumber daya alam tidak tersebar merata. Ada wilayah subur dengan banyak air, ada pula yang kering.</li>
-            <li><strong>Pertumbuhan Penduduk:</strong> Pertambahan manusia yang pesat tidak diimbangi dengan peningkatan sumber daya alam yang tersedia.</li>
-            <li><strong>Kemampuan Produksi:</strong> Kapasitas mesin dan <i>skill</i> (keterampilan) individu terbatas sehingga hasil produksi/output terbatas.</li>
-            <li><strong>Perkembangan Teknologi:</strong> Teknologi tidak menyebar merata (misal di kota sangat cepat, di desa lambat), yang berdampak pada kualitas SDM dan akses informasi.</li>
-            <li><strong>Bencana Alam:</strong> Bencana merusak lingkungan, bangunan, dan fasilitas produksi. Membutuhkan waktu lama dan biaya besar untuk pemulihannya.</li>
-        </ul>
-
-        <h3>B. Macam-Macam Kebutuhan Manusia</h3>
-        <p>Kebutuhan adalah keinginan manusia yang harus dipenuhi. Jika tidak, bisa mengganggu kehidupan. Kebutuhan dibagi menjadi 4 macam:</p>
-        <ol>
-            <li><strong>Menurut Intensitas atau Tingkatannya:</strong>
-                <ul>
-                    <li><i>Kebutuhan Primer:</i> Kebutuhan paling penting yang harus dipenuhi. Jika tidak, mengancam hidup. Contoh: sandang (pakaian), pangan (makanan), papan (tempat tinggal).</li>
-                    <li><i>Kebutuhan Sekunder:</i> Kepentingannya di tengah-tengah. Tidak mengancam nyawa jika tak terpenuhi. Contoh: meja, kursi, <i>handphone</i>, internet.</li>
-                    <li><i>Kebutuhan Tersier:</i> Kebutuhan kemewahan yang mengedepankan gengsi semata. Contoh: mobil mewah, kapal pesiar.</li>
-                </ul>
-            </li>
-            <li><strong>Menurut Sifatnya:</strong>
-                <ul>
-                    <li><i>Jasmani:</i> Diperlukan oleh fisik/tubuh manusia. Contoh: makan, minum, olahraga, obat saat sakit.</li>
-                    <li><i>Rohani:</i> Diperlukan oleh batin/jiwa manusia. Contoh: ketenangan mental, rasa aman, ibadah, hiburan.</li>
-                </ul>
-            </li>
-            <li><strong>Menurut Waktu Penggunaannya:</strong>
-                <ul>
-                    <li><i>Sekarang:</i> Harus dipenuhi saat ini juga, tidak dapat ditunda. Contoh: makan saat lapar, payung saat hujan.</li>
-                    <li><i>Masa yang Akan Datang:</i> Dapat ditunda karena dibutuhkan nanti. Contoh: menabung untuk liburan, ikut asuransi kesehatan (BPJS).</li>
-                </ul>
-            </li>
-            <li><strong>Menurut Subjeknya:</strong>
-                <ul>
-                    <li><i>Individual:</i> Dipakai untuk diri sendiri dan tidak bisa dipakai utuh lagi jika sudah digunakan. Contoh: sikat gigi, air mineral botol.</li>
-                    <li><i>Kelompok:</i> Berkaitan dengan orang banyak dan digunakan bersama. Contoh: jalan raya, jembatan, rumah sakit.</li>
-                </ul>
-            </li>
-        </ol>
-
-        <!-- ESSAY BAB 2 -->
-        <div class="essay-container">
-            <h4>Soal Esai - Bab 2</h4>
-            <ol>
-                <li>Jelaskan apa yang dimaksud dengan kelangkaan (scarcity) dalam ilmu ekonomi! <div class="essay-answer">Kelangkaan adalah kesenjangan atau kondisi ketika jumlah kebutuhan manusia yang tidak terbatas tidak sebanding dengan alat pemenuhan kebutuhannya yang jumlahnya terbatas.</div></li>
-                <li>Sebutkan 5 faktor penyebab terjadinya kelangkaan sumber daya ekonomi! <div class="essay-answer">Perbedaan letak geografis, pertumbuhan penduduk yang tidak seimbang, keterbatasan kemampuan produksi, perkembangan teknologi yang tidak merata, dan terjadinya bencana alam.</div></li>
-                <li>Bagaimana letak geografis dapat menyebabkan kelangkaan di suatu daerah? <div class="essay-answer">Karena sumber daya alam tidak tersebar merata di bumi; ada wilayah pegunungan yang kaya sumber air bersih, namun ada daerah perkotaan yang kekurangan air resapan.</div></li>
-                <li>Jelaskan perbedaan mendasar antara kebutuhan primer, sekunder, dan tersier! <div class="essay-answer">Primer sangat wajib dipenuhi untuk bertahan hidup (contoh: makanan). Sekunder dipenuhi sebagai penunjang kenyamanan hidup (contoh: HP). Tersier dipenuhi untuk kepuasan gengsi atau kemewahan (contoh: mobil sport).</div></li>
-                <li>Berikan 3 contoh kebutuhan yang bersifat jasmani! <div class="essay-answer">Makan, minum, olahraga rutin, dan minum obat jika sedang sakit.</div></li>
-                <li>Berikan 3 contoh kebutuhan yang bersifat rohani! <div class="essay-answer">Melakukan ibadah agama, berekreasi (liburan), dan mendapatkan ketenangan pikiran/keamanan.</div></li>
-                <li>Apa yang dimaksud dengan kebutuhan masa yang akan datang? Berikan contohnya! <div class="essay-answer">Kebutuhan yang pemenuhannya dapat ditunda karena kebutuhannya ditujukan untuk masa depan. Contoh: menabung untuk dana pendidikan dan membayar asuransi kesehatan.</div></li>
-                <li>Mengapa bencana alam dianggap sebagai salah satu penyebab kelangkaan yang fatal? <div class="essay-answer">Karena bencana alam dapat menghancurkan sumber daya alam dan infrastruktur produksi. Untuk membangun atau memulihkannya kembali membutuhkan waktu yang sangat lama dan biaya yang sangat besar.</div></li>
-                <li>Berikan 2 contoh kebutuhan kelompok (sosial)! <div class="essay-answer">Jembatan penyeberangan dan jalan raya aspal.</div></li>
-                <li>Apa kaitan langsung antara kelangkaan barang dengan munculnya "barang substitusi"? <div class="essay-answer">Karena adanya kelangkaan suatu barang, manusia dipaksa untuk memutar otak dan mencari pilihan lain (barang substitusi) yang fungsinya sama namun jumlahnya masih tersedia dan lebih efisien didapatkan.</div></li>
-            </ol>
-            <button class="btn btn-outline-success mt-2" onclick="toggleAnswers(this)">Tampilkan/Sembunyikan Kunci Jawaban Esai</button>
+    <div id="bab2" class="bab-card">
+        <div class="header-bab2">
+            <div class="badge-custom" style="background-color: #16a34a;"><i class="fas fa-leaf"></i> Bab 2</div>
+            <h2 class="bab-title">Kelangkaan & Kebutuhan Manusia</h2>
+            <i class="fas fa-box-open header-icon text-success"></i>
         </div>
+        
+        <div class="bab-content">
+            <h3><i class="fas fa-triangle-exclamation"></i> A. Kelangkaan Sumber Daya Ekonomi</h3>
+            <p>Kelangkaan (scarcity) adalah kondisi ketika jumlah kebutuhan manusia tidak sebanding dengan alat pemenuhan kebutuhannya. Kelangkaan timbul karena barang yang kita inginkan jumlahnya terbatas, sedangkan keinginan manusia tidak terbatas. Kelangkaan memaksa manusia memutar otak agar membuat pilihan lain (substitusi) yang efisien.</p>
+            <p>Penyebab kelangkaan sumber daya ekonomi meliputi:</p>
+            <ul>
+                <li><strong>Perbedaan Letak Geografis:</strong> Sumber daya alam tidak tersebar merata. Ada wilayah subur dengan banyak air, ada pula yang kering.</li>
+                <li><strong>Pertumbuhan Penduduk:</strong> Pertambahan manusia yang pesat tidak diimbangi dengan peningkatan sumber daya alam yang tersedia.</li>
+                <li><strong>Kemampuan Produksi:</strong> Kapasitas mesin dan <i>skill</i> (keterampilan) individu terbatas sehingga hasil produksi/output terbatas.</li>
+                <li><strong>Perkembangan Teknologi:</strong> Teknologi tidak menyebar merata (misal di kota sangat cepat, di desa lambat), yang berdampak pada kualitas SDM dan akses informasi.</li>
+                <li><strong>Bencana Alam:</strong> Bencana merusak lingkungan, bangunan, dan fasilitas produksi. Membutuhkan waktu lama dan biaya besar untuk pemulihannya.</li>
+            </ul>
 
-        <!-- MCQ BAB 2 -->
-        <div class="quiz-container">
-            <h4>Kuis Pilihan Ganda - Bab 2</h4>
-            <form id="quiz2Form"></form>
-            <button type="button" class="btn btn-primary mt-3 w-100" onclick="submitQuiz('quiz2Form', 20)">Cek Nilai Bab 2</button>
-            <div id="quiz2FormResult" class="result-box"></div>
+            <h3><i class="fas fa-layer-group"></i> B. Macam-Macam Kebutuhan Manusia</h3>
+            <p>Kebutuhan adalah keinginan manusia yang harus dipenuhi. Jika tidak, bisa mengganggu kehidupan. Kebutuhan dibagi menjadi 4 macam:</p>
+            <ol>
+                <li><strong>Menurut Intensitas atau Tingkatannya:</strong>
+                    <ul>
+                        <li><i>Kebutuhan Primer:</i> Kebutuhan paling penting yang harus dipenuhi. Jika tidak, mengancam hidup. Contoh: sandang (pakaian), pangan (makanan), papan (tempat tinggal).</li>
+                        <li><i>Kebutuhan Sekunder:</i> Kepentingannya di tengah-tengah. Tidak mengancam nyawa jika tak terpenuhi. Contoh: meja, kursi, <i>handphone</i>, internet.</li>
+                        <li><i>Kebutuhan Tersier:</i> Kebutuhan kemewahan yang mengedepankan gengsi semata. Contoh: mobil mewah, kapal pesiar.</li>
+                    </ul>
+                </li>
+                <li><strong>Menurut Sifatnya:</strong>
+                    <ul>
+                        <li><i>Jasmani:</i> Diperlukan oleh fisik/tubuh manusia. Contoh: makan, minum, olahraga, obat saat sakit.</li>
+                        <li><i>Rohani:</i> Diperlukan oleh batin/jiwa manusia. Contoh: ketenangan mental, rasa aman, ibadah, hiburan.</li>
+                    </ul>
+                </li>
+                <li><strong>Menurut Waktu Penggunaannya:</strong>
+                    <ul>
+                        <li><i>Sekarang:</i> Harus dipenuhi saat ini juga, tidak dapat ditunda. Contoh: makan saat lapar, payung saat hujan.</li>
+                        <li><i>Masa yang Akan Datang:</i> Dapat ditunda karena dibutuhkan nanti. Contoh: menabung untuk liburan, ikut asuransi kesehatan (BPJS).</li>
+                    </ul>
+                </li>
+                <li><strong>Menurut Subjeknya:</strong>
+                    <ul>
+                        <li><i>Individual:</i> Dipakai untuk diri sendiri dan tidak bisa dipakai utuh lagi jika sudah digunakan. Contoh: sikat gigi, air mineral botol.</li>
+                        <li><i>Kelompok:</i> Berkaitan dengan orang banyak dan digunakan bersama. Contoh: jalan raya, jembatan, rumah sakit.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <!-- ESSAY BAB 2 -->
+            <div class="eval-box shadow-sm">
+                <div class="eval-title"><i class="fas fa-pen-to-square text-success me-2"></i> Latihan Esai Bab 2</div>
+                <ol>
+                    <li class="mb-2">Jelaskan apa yang dimaksud dengan kelangkaan (scarcity) dalam ilmu ekonomi! <div class="essay-answer">Kelangkaan adalah kesenjangan atau kondisi ketika jumlah kebutuhan manusia yang tidak terbatas tidak sebanding dengan alat pemenuhan kebutuhannya yang jumlahnya terbatas.</div></li>
+                    <li class="mb-2">Sebutkan 5 faktor penyebab terjadinya kelangkaan sumber daya ekonomi! <div class="essay-answer">Perbedaan letak geografis, pertumbuhan penduduk yang tidak seimbang, keterbatasan kemampuan produksi, perkembangan teknologi yang tidak merata, dan terjadinya bencana alam.</div></li>
+                    <li class="mb-2">Bagaimana letak geografis dapat menyebabkan kelangkaan di suatu daerah? <div class="essay-answer">Karena sumber daya alam tidak tersebar merata di bumi; ada wilayah pegunungan yang kaya sumber air bersih, namun ada daerah perkotaan yang kekurangan air resapan.</div></li>
+                    <li class="mb-2">Jelaskan perbedaan mendasar antara kebutuhan primer, sekunder, dan tersier! <div class="essay-answer">Primer sangat wajib dipenuhi untuk bertahan hidup (contoh: makanan). Sekunder dipenuhi sebagai penunjang kenyamanan hidup (contoh: HP). Tersier dipenuhi untuk kepuasan gengsi atau kemewahan (contoh: mobil sport).</div></li>
+                    <li class="mb-2">Berikan 3 contoh kebutuhan yang bersifat jasmani! <div class="essay-answer">Makan, minum, olahraga rutin, dan minum obat jika sedang sakit.</div></li>
+                    <li class="mb-2">Berikan 3 contoh kebutuhan yang bersifat rohani! <div class="essay-answer">Melakukan ibadah agama, berekreasi (liburan), dan mendapatkan ketenangan pikiran/keamanan.</div></li>
+                    <li class="mb-2">Apa yang dimaksud dengan kebutuhan masa yang akan datang? Berikan contohnya! <div class="essay-answer">Kebutuhan yang pemenuhannya dapat ditunda karena kebutuhannya ditujukan untuk masa depan. Contoh: menabung untuk dana pendidikan dan membayar asuransi kesehatan.</div></li>
+                    <li class="mb-2">Mengapa bencana alam dianggap sebagai salah satu penyebab kelangkaan yang fatal? <div class="essay-answer">Karena bencana alam dapat menghancurkan sumber daya alam dan infrastruktur produksi. Untuk membangun atau memulihkannya kembali membutuhkan waktu yang sangat lama dan biaya yang sangat besar.</div></li>
+                    <li class="mb-2">Berikan 2 contoh kebutuhan kelompok (sosial)! <div class="essay-answer">Jembatan penyeberangan dan jalan raya aspal.</div></li>
+                    <li class="mb-2">Apa kaitan langsung antara kelangkaan barang dengan munculnya "barang substitusi"? <div class="essay-answer">Karena adanya kelangkaan suatu barang, manusia dipaksa untuk memutar otak dan mencari pilihan lain (barang substitusi) yang fungsinya sama namun jumlahnya masih tersedia dan lebih efisien didapatkan.</div></li>
+                </ol>
+                <button class="btn-toggle-essay mt-3" onclick="toggleAnswers(this)"><i class="fas fa-eye me-2"></i>Cek Kunci Jawaban</button>
+            </div>
+
+            <!-- MCQ BAB 2 -->
+            <div class="eval-box shadow-sm mt-4">
+                <div class="eval-title"><i class="fas fa-list-check text-success me-2"></i> Kuis Pilihan Ganda Bab 2</div>
+                <form id="quiz2Form"></form>
+                <button type="button" class="btn-submit-quiz mt-4" style="background-color: #16a34a;" onclick="submitQuiz('quiz2Form', 20)">Kumpulkan & Lihat Nilai</button>
+                <div id="quiz2FormResult" class="result-box" style="background: #dcfce7; color: #166534; border-color: #86efac;"></div>
+            </div>
         </div>
     </div>
 
     <!-- BAB 3: SISTEM EKONOMI -->
-    <div id="bab3" class="materi-section">
-        <h2>Bab 3: Sistem Ekonomi</h2>
-        
-        <h3>A. Pengertian Sistem Ekonomi</h3>
-        <p>Ketika pasokan barang (misal: minyak goreng) langka dan mahal di pasar, pemerintah akan turun tangan demi menyelesaikan masalah. Kelangkaan tersebut adalah masalah ekonomi. Sistem ekonomi adalah cara yang digunakan untuk mengatasi masalah ekonomi. Karena sistem pemerintahan, sumber daya alam, dan teknologi tiap negara berbeda, setiap negara memiliki sistem ekonominya sendiri.</p>
-
-        <h3>B. Jenis-Jenis Sistem Ekonomi</h3>
-        <ol>
-            <li><strong>Sistem Ekonomi Tradisional:</strong> 
-                <p>Sistem ini paling sederhana. Cara penyelesaian masalah didasari oleh kebiasaan, tradisi, dan adat istiadat secara turun-temurun. Hasil produksi hanya untuk memenuhi kebutuhan sehari-hari, tidak untuk diperjualbelikan melainkan menggunakan sistem <i>barter</i> (tukar menukar barang). Tidak menggunakan teknologi canggih.</p>
-                <ul>
-                    <li><i>Kelebihan:</i> Tidak ada eksploitasi alam/manusia, masyarakat tidak serakah, minim konflik.</li>
-                    <li><i>Kekurangan:</i> Hasil produksi sangat terbatas, pertumbuhan ekonomi lambat, dan nilai tukar barang saat barter sering tidak seimbang (misal: ayam ditukar singkong).</li>
-                </ul>
-            </li>
-            <li><strong>Sistem Ekonomi Liberal (Pasar):</strong> 
-                <p>Memberikan kebebasan penuh kepada masyarakat untuk menjalankan kegiatan produksi, distribusi, dan konsumsi. Tujuannya murni mencari keuntungan sebanyak-banyaknya. Peran pemerintah sangat minim/hampir tidak ada. Sistem ini sesuai dengan semboyan <i>Laissez Fairre, Laissez Passer</i>. Dianut oleh Amerika Serikat, Inggris, Jerman.</p>
-                <ul>
-                    <li><i>Kelebihan:</i> Kreativitas produsen sangat tinggi, banyak inovasi, konsumen punya banyak opsi barang berkualitas.</li>
-                    <li><i>Kekurangan:</i> Persaingan tidak sehat (yang modal kecil mati), memicu eksploitasi alam besar-besaran, dan negara rentan terkena krisis/resesi.</li>
-                </ul>
-            </li>
-            <li><strong>Sistem Ekonomi Komando (Terpusat/Terpimpin/Sosialis):</strong> 
-                <p>Kebalikan dari liberal. Pemerintah menguasai sumber daya alam dan modal sepenuhnya. Pemerintah yang menentukan barang apa yang diproduksi, harganya, hingga pekerjaan warganya. Tujuannya untuk memenuhi kebutuhan bersama. Dianut oleh Korea Utara.</p>
-                <ul>
-                    <li><i>Kelebihan:</i> Jarang terjadi krisis ekonomi, kondisi stabil, pendapatan masyarakat sangat merata.</li>
-                    <li><i>Kekurangan:</i> Masyarakat tidak punya ruang berinovasi, kualitas barang ala kadarnya, hak milik pribadi tidak diakui, kebijakan bersifat memaksa/otoriter.</li>
-                </ul>
-            </li>
-            <li><strong>Sistem Ekonomi Campuran:</strong> 
-                <p>Menggabungkan kelebihan sistem liberal dan komando. Pemerintah dan pihak swasta bekerjasama memecahkan masalah perekonomian. Pemerintah mengontrol sumber daya vital (hutan, air, listrik), sementara masyarakat bebas berbisnis dan menentukan harga dengan pengawasan. Dianut oleh Brazil, Mesir, Prancis, (dan Indonesia).</p>
-                <ul>
-                    <li><i>Kelebihan:</i> Meningkatkan inovasi pelaku UMKM, mencegah monopoli swasta, persaingan usaha tetap sehat, ekonomi stabil.</li>
-                    <li><i>Kekurangan:</i> Penerapannya sering berat sebelah; jika peran pemerintah terlalu lemah bisa berubah menjadi liberal, jika terlalu kuat bisa berubah menjadi komando.</li>
-                </ul>
-            </li>
-        </ol>
-
-        <!-- ESSAY BAB 3 -->
-        <div class="essay-container">
-            <h4>Soal Esai - Bab 3</h4>
-            <ol>
-                <li>Jelaskan definisi dari sistem ekonomi! <div class="essay-answer">Sistem ekonomi adalah susunan cara yang digunakan oleh suatu negara untuk mengatasi dan menyelesaikan masalah-masalah perekonomian yang dihadapinya.</div></li>
-                <li>Mengapa setiap negara di dunia tidak menerapkan sistem ekonomi yang sama persis? <div class="essay-answer">Karena setiap negara memiliki sistem pemerintahan, kondisi sumber daya alam, kebudayaan, serta tingkat kemajuan teknologi yang berbeda-beda.</div></li>
-                <li>Apa ciri utama sistem transaksi pada sistem ekonomi tradisional? <div class="essay-answer">Transaksinya sangat sederhana, belum menggunakan uang, dan masih mengandalkan sistem barter (tukar barang) berdasarkan tradisi.</div></li>
-                <li>Mengapa sistem ekonomi pasar/liberal sering memunculkan kesenjangan sosial yang tajam? <div class="essay-answer">Karena kebebasan diserahkan sepenuhnya kepada individu untuk mencari untung maksimal; pengusaha bermodal besar akan semakin kaya dan bisa mematikan usaha masyarakat bermodal kecil.</div></li>
-                <li>Sebutkan 2 kelebihan utama dari sistem ekonomi komando! <div class="essay-answer">Kondisi ekonomi cenderung sangat stabil (jarang krisis) dan pendapatan/kesejahteraan masyarakat didistribusikan secara merata oleh pemerintah.</div></li>
-                <li>Apa dampak negatif sistem ekonomi komando bagi kreativitas masyarakat? <div class="essay-answer">Masyarakat tidak memiliki ruang dan kebebasan untuk berinovasi, karena semua jenis pekerjaan, produksi barang, dan distribusinya sudah ditentukan mutlak oleh negara.</div></li>
-                <li>Jelaskan pembagian peran antara swasta dan pemerintah dalam sistem ekonomi campuran! <div class="essay-answer">Pemerintah bertugas mengontrol sumber daya vital negara dan mengawasi pasar, sementara pihak swasta diberikan kebebasan untuk berinovasi memproduksi barang dan jasa.</div></li>
-                <li>Sebutkan masing-masing 1 contoh negara yang menganut sistem ekonomi komando dan sistem ekonomi liberal! <div class="essay-answer">Sistem Komando: Korea Utara. Sistem Liberal: Amerika Serikat.</div></li>
-                <li>Apa yang dimaksud dengan semboyan "Laissez Fairre, Laissez Passer" dalam ekonomi liberal? <div class="essay-answer">Semboyan dari Adam Smith yang berarti biarkanlah segala urusan ekonomi berjalan bebas, yang bermakna kegiatan ekonomi harus diserahkan sepenuhnya kepada masyarakat pasar tanpa campur tangan negara.</div></li>
-                <li>Apa risiko atau kelemahan dari penerapan sistem ekonomi campuran? <div class="essay-answer">Sering terjadi ketidakjelasan batas peran; jika campur tangan pemerintah terlalu lemah akan condong menjadi kapitalis/liberal, namun jika terlalu kuat akan condong menjadi otoriter/komando.</div></li>
-            </ol>
-            <button class="btn btn-outline-success mt-2" onclick="toggleAnswers(this)">Tampilkan/Sembunyikan Kunci Jawaban Esai</button>
+    <div id="bab3" class="bab-card">
+        <div class="header-bab3">
+            <div class="badge-custom" style="background-color: #9333ea;"><i class="fas fa-scale-balanced"></i> Bab 3</div>
+            <h2 class="bab-title">Sistem Ekonomi</h2>
+            <i class="fas fa-globe header-icon text-purple" style="color: #d8b4fe;"></i>
         </div>
+        
+        <div class="bab-content">
+            <h3><i class="fas fa-network-wired"></i> A. Pengertian Sistem Ekonomi</h3>
+            <p>Sistem ekonomi adalah cara yang digunakan untuk mengatasi masalah ekonomi. Karena sistem pemerintahan, sumber daya alam, dan teknologi tiap negara berbeda, setiap negara memiliki sistem ekonominya sendiri.</p>
 
-        <!-- MCQ BAB 3 -->
-        <div class="quiz-container">
-            <h4>Kuis Pilihan Ganda - Bab 3</h4>
-            <form id="quiz3Form"></form>
-            <button type="button" class="btn btn-primary mt-3 w-100" onclick="submitQuiz('quiz3Form', 20)">Cek Nilai Bab 3</button>
-            <div id="quiz3FormResult" class="result-box"></div>
+            <h3><i class="fas fa-code-branch"></i> B. Jenis-Jenis Sistem Ekonomi</h3>
+            <ol>
+                <li><strong>Sistem Ekonomi Tradisional:</strong> 
+                    <p>Sistem ini paling sederhana. Cara penyelesaian masalah didasari oleh kebiasaan, tradisi, dan adat istiadat secara turun-temurun. Hasil produksi hanya untuk memenuhi kebutuhan sehari-hari, tidak untuk diperjualbelikan melainkan menggunakan sistem <i>barter</i>. Tidak menggunakan teknologi canggih.</p>
+                    <ul>
+                        <li><i>Kelebihan:</i> Tidak ada eksploitasi alam/manusia, minim konflik.</li>
+                        <li><i>Kekurangan:</i> Hasil produksi sangat terbatas, pertumbuhan ekonomi lambat.</li>
+                    </ul>
+                </li>
+                <li><strong>Sistem Ekonomi Liberal (Pasar):</strong> 
+                    <p>Memberikan kebebasan penuh kepada masyarakat untuk menjalankan kegiatan produksi, distribusi, dan konsumsi. Tujuannya murni mencari keuntungan sebanyak-banyaknya. Peran pemerintah sangat minim/hampir tidak ada. Dianut oleh Amerika Serikat, Inggris, Jerman.</p>
+                    <ul>
+                        <li><i>Kelebihan:</i> Kreativitas produsen sangat tinggi, konsumen punya banyak opsi barang berkualitas.</li>
+                        <li><i>Kekurangan:</i> Persaingan tidak sehat, memicu eksploitasi alam, rentan terkena resesi.</li>
+                    </ul>
+                </li>
+                <li><strong>Sistem Ekonomi Komando (Terpusat/Sosialis):</strong> 
+                    <p>Pemerintah menguasai sumber daya alam dan modal sepenuhnya. Pemerintah yang menentukan barang apa yang diproduksi, harganya, hingga pekerjaan warganya. Dianut oleh Korea Utara.</p>
+                    <ul>
+                        <li><i>Kelebihan:</i> Jarang terjadi krisis ekonomi, pendapatan masyarakat sangat merata.</li>
+                        <li><i>Kekurangan:</i> Masyarakat tidak punya ruang berinovasi, kualitas barang ala kadarnya, hak milik pribadi tidak diakui.</li>
+                    </ul>
+                </li>
+                <li><strong>Sistem Ekonomi Campuran:</strong> 
+                    <p>Menggabungkan kelebihan sistem liberal dan komando. Pemerintah dan pihak swasta bekerjasama memecahkan masalah perekonomian. Pemerintah mengontrol sumber daya vital, sementara masyarakat bebas berbisnis dengan pengawasan.</p>
+                    <ul>
+                        <li><i>Kelebihan:</i> Meningkatkan inovasi pelaku UMKM, mencegah monopoli swasta, persaingan usaha tetap sehat.</li>
+                        <li><i>Kekurangan:</i> Penerapannya sering berat sebelah (bisa condong ke liberal atau komando jika pengawasan tidak stabil).</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <!-- ESSAY BAB 3 -->
+            <div class="eval-box shadow-sm">
+                <div class="eval-title"><i class="fas fa-pen-to-square text-purple me-2" style="color:#9333ea;"></i> Latihan Esai Bab 3</div>
+                <ol>
+                    <li class="mb-2">Jelaskan definisi dari sistem ekonomi! <div class="essay-answer">Sistem ekonomi adalah susunan cara yang digunakan oleh suatu negara untuk mengatasi dan menyelesaikan masalah-masalah perekonomian yang dihadapinya.</div></li>
+                    <li class="mb-2">Mengapa setiap negara di dunia tidak menerapkan sistem ekonomi yang sama persis? <div class="essay-answer">Karena setiap negara memiliki sistem pemerintahan, kondisi sumber daya alam, kebudayaan, serta tingkat kemajuan teknologi yang berbeda-beda.</div></li>
+                    <li class="mb-2">Apa ciri utama sistem transaksi pada sistem ekonomi tradisional? <div class="essay-answer">Transaksinya sangat sederhana, belum menggunakan uang, dan masih mengandalkan sistem barter (tukar barang) berdasarkan tradisi.</div></li>
+                    <li class="mb-2">Mengapa sistem ekonomi pasar/liberal sering memunculkan kesenjangan sosial yang tajam? <div class="essay-answer">Karena kebebasan diserahkan sepenuhnya kepada individu untuk mencari untung maksimal; pengusaha bermodal besar akan semakin kaya dan bisa mematikan usaha masyarakat bermodal kecil.</div></li>
+                    <li class="mb-2">Sebutkan 2 kelebihan utama dari sistem ekonomi komando! <div class="essay-answer">Kondisi ekonomi cenderung sangat stabil (jarang krisis) dan pendapatan/kesejahteraan masyarakat didistribusikan secara merata oleh pemerintah.</div></li>
+                    <li class="mb-2">Apa dampak negatif sistem ekonomi komando bagi kreativitas masyarakat? <div class="essay-answer">Masyarakat tidak memiliki ruang dan kebebasan untuk berinovasi, karena semua jenis pekerjaan, produksi barang, dan distribusinya sudah ditentukan mutlak oleh negara.</div></li>
+                    <li class="mb-2">Jelaskan pembagian peran antara swasta dan pemerintah dalam sistem ekonomi campuran! <div class="essay-answer">Pemerintah bertugas mengontrol sumber daya vital negara dan mengawasi pasar, sementara pihak swasta diberikan kebebasan untuk berinovasi memproduksi barang dan jasa.</div></li>
+                    <li class="mb-2">Sebutkan masing-masing 1 contoh negara yang menganut sistem ekonomi komando dan sistem ekonomi liberal! <div class="essay-answer">Sistem Komando: Korea Utara. Sistem Liberal: Amerika Serikat.</div></li>
+                    <li class="mb-2">Apa yang dimaksud dengan semboyan "Laissez Fairre, Laissez Passer" dalam ekonomi liberal? <div class="essay-answer">Semboyan dari Adam Smith yang berarti biarkanlah segala urusan ekonomi berjalan bebas, yang bermakna kegiatan ekonomi harus diserahkan sepenuhnya kepada masyarakat pasar tanpa campur tangan negara.</div></li>
+                    <li class="mb-2">Apa risiko atau kelemahan dari penerapan sistem ekonomi campuran? <div class="essay-answer">Sering terjadi ketidakjelasan batas peran; jika campur tangan pemerintah terlalu lemah akan condong menjadi kapitalis/liberal, namun jika terlalu kuat akan condong menjadi otoriter/komando.</div></li>
+                </ol>
+                <button class="btn-toggle-essay mt-3" onclick="toggleAnswers(this)" style="border-color: #9333ea; color: #9333ea;"><i class="fas fa-eye me-2"></i>Cek Kunci Jawaban</button>
+            </div>
+
+            <!-- MCQ BAB 3 -->
+            <div class="eval-box shadow-sm mt-4">
+                <div class="eval-title"><i class="fas fa-list-check me-2" style="color:#9333ea;"></i> Kuis Pilihan Ganda Bab 3</div>
+                <form id="quiz3Form"></form>
+                <button type="button" class="btn-submit-quiz mt-4" style="background-color: #9333ea;" onclick="submitQuiz('quiz3Form', 20)">Kumpulkan & Lihat Nilai</button>
+                <div id="quiz3FormResult" class="result-box" style="background: #f3e8ff; color: #6b21a8; border-color: #d8b4fe;"></div>
+            </div>
         </div>
     </div>
 
     <!-- BAB 4: LITERASI KEUANGAN -->
-    <div id="bab4" class="materi-section">
-        <h2>Bab 4: Literasi Keuangan & Skala Prioritas</h2>
-        
-        <h3>A. Pengertian Literasi Finansial</h3>
-        <p>Literasi keuangan atau literasi finansial adalah kemampuan dalam memahami dan menerapkan pengetahuan mengenai pengelolaan keuangan dalam kehidupan sehari-hari. Mencakup perencanaan pribadi sederhana hingga soal utang dan investasi.</p>
-        <p>Ada pandangan keliru bahwa mengatur uang hanya untuk orang kaya. Faktanya, literasi keuangan sangat diperlukan oleh siapa saja, terlebih bagi pelajar atau orang yang berpenghasilan terbatas (uang saku orang tua), agar bisa mengatur uangnya menjadi efektif dan tidak berantakan.</p>
-
-        <h3>B. Manfaat Literasi Finansial</h3>
-        <ol>
-            <li><strong>Meningkatkan Pengelolaan Keuangan Pribadi:</strong> Membantu membedakan antara kebutuhan (<i>needs</i>) dan keinginan (<i>wants</i>).</li>
-            <li><strong>Mencegah Hutang Berlebih:</strong> Memahami risiko penggunaan kredit/pinjaman sehingga lebih disiplin dan terhindar dari jeratan utang.</li>
-            <li><strong>Membantu Perencanaan Masa Depan:</strong> Memahami pentingnya menabung, investasi dana pensiun, dan asuransi.</li>
-            <li><strong>Meningkatkan Kemampuan Berinvestasi:</strong> Memahami produk (saham, reksadana, emas, properti) serta terhindar dari penipuan.</li>
-            <li><strong>Mengurangi Stres Keuangan:</strong> Merasa lebih aman, percaya diri, dan siap saat menghadapi keadaan darurat karena punya tabungan andalan.</li>
-        </ol>
-
-        <h3>C. Pentingnya Literasi Finansial Bagi Siswa</h3>
-        <ul>
-            <li><strong>Membentuk kebiasaan keuangan sejak dini:</strong> Paham pentingnya menabung dan mengelola uang saku.</li>
-            <li><strong>Menghindari masalah di masa depan:</strong> Terhindar dari pengeluaran yang tidak terkendali saat dewasa nanti.</li>
-            <li><strong>Mengajarkan tanggung jawab:</strong> Belajar menjadi individu yang mandiri finansial.</li>
-            <li><strong>Menumbuhkan jiwa wirausaha:</strong> Berpikir kreatif mencari peluang bisnis dan mengelola keuangan usahanya kelak.</li>
-        </ul>
-
-        <h3>D. Cakupan Kemampuan Literasi Finansial</h3>
-        <p>Berdasarkan Gerakan Literasi Nasional, cakupannya meliputi 6 hal:</p>
-        <ol>
-            <li><strong>Memahami Transaksi Ekonomi:</strong> Paham pokok ekonomi (produksi-distribusi-konsumsi), sistem perdagangan, dan alat pembayaran modern.</li>
-            <li><strong>Mengenali Pemasukan (Earning):</strong> Mengenali sumber penghasilan. Harus bisa membedakan <i>penghasilan kotor</i> (belum dipotong pajak/asuransi) dan <i>penghasilan bersih</i> (sudah dipotong/uang yang benar-benar diterima).</li>
-            <li><strong>Mengelola Pengeluaran (Spending):</strong> Membuat <i>anggaran belanja</i> berdasarkan <i>skala prioritas</i> (dahulukan kebutuhan primer). Pengeluaran dibagi dua: jangka pendek (untuk harian seperti ongkos/makan) dan jangka panjang (membeli aset seperti tas, sepeda).</li>
-            <li><strong>Merancang Tabungan (Saving):</strong> Menyisihkan sisa uang primer untuk ditabung. Menabung melatih kesabaran agar bisa membeli barang tanpa mencicil berbunga. Termasuk juga di dalamnya adalah investasi (menyimpan modal di emas, saham, deposito).</li>
-            <li><strong>Merancang Alokasi Berbagi (Sharing):</strong> Mengeluarkan uang untuk pajak negara (sifatnya wajib, contoh PPN 10% saat makan di restoran) dan untuk donasi keagamaan/sosial (seperti zakat, sedekah).</li>
-            <li><strong>Mengenali Kejahatan Finansial:</strong> Mengenali modus penyalahgunaan uang, penipuan investasi, dan korupsi agar tidak menjadi korban maupun pelaku.</li>
-        </ol>
-
-        <!-- ESSAY BAB 4 -->
-        <div class="essay-container">
-            <h4>Soal Esai - Bab 4</h4>
-            <ol>
-                <li>Jelaskan apa yang dimaksud dengan literasi finansial! <div class="essay-answer">Literasi finansial adalah kemampuan dalam memahami dan menerapkan pengetahuan tentang pengelolaan keuangan dalam kehidupan sehari-hari secara bijak dan efektif.</div></li>
-                <li>Mengapa pandangan bahwa "literasi keuangan hanya diperlukan oleh orang kaya" adalah pandangan yang sangat keliru? <div class="essay-answer">Karena justru orang dengan penghasilan yang terbatas (seperti pelajar) sangat membutuhkan literasi ini agar bisa mengatur uangnya dengan cermat, sehingga tidak jatuh miskin atau terjerat utang.</div></li>
-                <li>Sebutkan 3 manfaat utama literasi finansial bagi kehidupan seorang individu! <div class="essay-answer">Mencegah terjadinya hutang yang berlebihan, membantu merencanakan masa depan (melalui tabungan/asuransi), dan mengurangi stres keuangan karena memiliki dana darurat.</div></li>
-                <li>Apa perbedaan antara penghasilan kotor dan penghasilan bersih (Earning)? <div class="essay-answer">Penghasilan kotor adalah nominal pendapatan utuh yang belum dipotong pajak, asuransi, atau cicilan. Penghasilan bersih adalah nominal uang riil yang diterima dan siap dipakai setelah dikurangi potongan-potongan tersebut.</div></li>
-                <li>Mengapa membuat catatan anggaran belanja (Spending) dianggap sangat penting? <div class="essay-answer">Agar kita bisa memetakan skala prioritas pengeluaran, sehingga uang habis untuk memenuhi kebutuhan utama terlebih dahulu, bukan terkuras hanya untuk menuruti keinginan semata.</div></li>
-                <li>Jelaskan perbedaan mendasar antara pengeluaran jangka pendek dan jangka panjang beserta contohnya! <div class="essay-answer">Jangka pendek ditujukan untuk kebutuhan harian (contoh: uang makan siang, ongkos angkot). Jangka panjang ditujukan untuk barang yang masa pakainya lama (contoh: membeli sepeda, tas sekolah).</div></li>
-                <li>Sebutkan keuntungan merancang tabungan (Saving) dibandingkan mengambil kredit/cicilan barang! <div class="essay-answer">Menabung melatih kedisiplinan dan kesabaran, menghindari kita dari beban membayar bunga kredit tambahan, serta menyediakan dana kas keras saat kondisi darurat.</div></li>
-                <li>Berikan satu contoh penerapan alokasi berbagi (Sharing) yang bersifat wajib kepada negara saat kita berbelanja! <div class="essay-answer">Membayar Pajak Pertambahan Nilai (PPN), misalnya ketika kita membayar tagihan makanan di restoran yang ditambahkan PPN 10-11%.</div></li>
-                <li>Apa tujuan dari mempelajari cakupan "Mengenali Kejahatan Finansial"? <div class="essay-answer">Agar kita menjadi waspada dan tidak mudah terjebak menjadi korban dari investasi bodong, penipuan online, maupun terbawa ke dalam praktik korupsi yang merugikan orang lain.</div></li>
-                <li>Bagaimana pemahaman literasi keuangan dapat memicu tumbuhnya jiwa wirausaha bagi seorang siswa? <div class="essay-answer">Dengan paham arus uang masuk dan keluar, siswa akan terdorong mencari ide kreatif untuk mendapatkan uang tambahan (memulai usaha kecil), dan ia memiliki bekal ilmu untuk memutar modal usahanya tanpa rugi.</div></li>
-            </ol>
-            <button class="btn btn-outline-success mt-2" onclick="toggleAnswers(this)">Tampilkan/Sembunyikan Kunci Jawaban Esai</button>
+    <div id="bab4" class="bab-card">
+        <div class="header-bab4">
+            <div class="badge-custom" style="background-color: #ea580c;"><i class="fas fa-wallet"></i> Bab 4</div>
+            <h2 class="bab-title">Literasi Keuangan & Skala Prioritas</h2>
+            <i class="fas fa-coins header-icon text-warning"></i>
         </div>
+        
+        <div class="bab-content">
+            <h3><i class="fas fa-lightbulb"></i> A. Pengertian Literasi Finansial</h3>
+            <p>Literasi keuangan atau literasi finansial adalah kemampuan dalam memahami dan menerapkan pengetahuan mengenai pengelolaan keuangan dalam kehidupan sehari-hari. Literasi keuangan sangat diperlukan oleh siapa saja, terlebih bagi pelajar atau orang yang berpenghasilan terbatas agar bisa mengatur uangnya menjadi efektif dan tidak berantakan.</p>
 
-        <!-- MCQ BAB 4 -->
-        <div class="quiz-container">
-            <h4>Kuis Pilihan Ganda - Bab 4</h4>
-            <form id="quiz4Form"></form>
-            <button type="button" class="btn btn-primary mt-3 w-100" onclick="submitQuiz('quiz4Form', 20)">Cek Nilai Bab 4</button>
-            <div id="quiz4FormResult" class="result-box"></div>
+            <h3><i class="fas fa-hand-holding-dollar"></i> B. Manfaat Literasi Finansial</h3>
+            <ol>
+                <li><strong>Meningkatkan Pengelolaan Keuangan Pribadi:</strong> Membantu membedakan antara kebutuhan (<i>needs</i>) dan keinginan (<i>wants</i>).</li>
+                <li><strong>Mencegah Hutang Berlebih:</strong> Memahami risiko pinjaman sehingga disiplin terhindar dari jeratan utang.</li>
+                <li><strong>Membantu Perencanaan Masa Depan:</strong> Memahami pentingnya menabung dan asuransi.</li>
+                <li><strong>Meningkatkan Kemampuan Berinvestasi:</strong> Memahami produk seperti saham, reksadana, emas, serta menghindari penipuan.</li>
+                <li><strong>Mengurangi Stres Keuangan:</strong> Merasa aman dan siap saat menghadapi keadaan darurat.</li>
+            </ol>
+
+            <h3><i class="fas fa-diagram-project"></i> C. Cakupan Kemampuan Literasi Finansial</h3>
+            <p>Berdasarkan Gerakan Literasi Nasional, cakupannya meliputi 6 hal:</p>
+            <ul>
+                <li><strong>Memahami Transaksi Ekonomi:</strong> Paham pokok ekonomi dan sistem pembayaran.</li>
+                <li><strong>Mengenali Pemasukan (Earning):</strong> Membedakan penghasilan kotor (belum dipotong pajak) dan penghasilan bersih.</li>
+                <li><strong>Mengelola Pengeluaran (Spending):</strong> Membuat anggaran belanja (skala prioritas).</li>
+                <li><strong>Merancang Tabungan (Saving):</strong> Menyisihkan uang, melatih kesabaran membeli barang tanpa mencicil berbunga, serta investasi modal.</li>
+                <li><strong>Merancang Alokasi Berbagi (Sharing):</strong> Mengeluarkan uang pajak negara (PPN) atau donasi (zakat/sedekah).</li>
+                <li><strong>Mengenali Kejahatan Finansial:</strong> Mengenali modus penyalahgunaan uang agar tidak menjadi korban penipuan/korupsi.</li>
+            </ul>
+
+            <!-- ESSAY BAB 4 -->
+            <div class="eval-box shadow-sm">
+                <div class="eval-title"><i class="fas fa-pen-to-square text-warning me-2" style="color:#ea580c !important;"></i> Latihan Esai Bab 4</div>
+                <ol>
+                    <li class="mb-2">Jelaskan apa yang dimaksud dengan literasi finansial! <div class="essay-answer">Literasi finansial adalah kemampuan dalam memahami dan menerapkan pengetahuan tentang pengelolaan keuangan dalam kehidupan sehari-hari secara bijak dan efektif.</div></li>
+                    <li class="mb-2">Mengapa pandangan bahwa "literasi keuangan hanya diperlukan oleh orang kaya" adalah pandangan yang sangat keliru? <div class="essay-answer">Karena justru orang dengan penghasilan yang terbatas (seperti pelajar) sangat membutuhkan literasi ini agar bisa mengatur uangnya dengan cermat, sehingga tidak jatuh miskin atau terjerat utang.</div></li>
+                    <li class="mb-2">Sebutkan 3 manfaat utama literasi finansial bagi kehidupan seorang individu! <div class="essay-answer">Mencegah terjadinya hutang yang berlebihan, membantu merencanakan masa depan (melalui tabungan/asuransi), dan mengurangi stres keuangan karena memiliki dana darurat.</div></li>
+                    <li class="mb-2">Apa perbedaan antara penghasilan kotor dan penghasilan bersih (Earning)? <div class="essay-answer">Penghasilan kotor adalah nominal pendapatan utuh yang belum dipotong pajak, asuransi, atau cicilan. Penghasilan bersih adalah nominal uang riil yang diterima dan siap dipakai setelah dikurangi potongan-potongan tersebut.</div></li>
+                    <li class="mb-2">Mengapa membuat catatan anggaran belanja (Spending) dianggap sangat penting? <div class="essay-answer">Agar kita bisa memetakan skala prioritas pengeluaran, sehingga uang habis untuk memenuhi kebutuhan utama terlebih dahulu, bukan terkuras hanya untuk menuruti keinginan semata.</div></li>
+                    <li class="mb-2">Jelaskan perbedaan mendasar antara pengeluaran jangka pendek dan jangka panjang beserta contohnya! <div class="essay-answer">Jangka pendek ditujukan untuk kebutuhan harian (contoh: uang makan siang, ongkos angkot). Jangka panjang ditujukan untuk barang yang masa pakainya lama (contoh: membeli sepeda, tas sekolah).</div></li>
+                    <li class="mb-2">Sebutkan keuntungan merancang tabungan (Saving) dibandingkan mengambil kredit/cicilan barang! <div class="essay-answer">Menabung melatih kedisiplinan dan kesabaran, menghindari kita dari beban membayar bunga kredit tambahan, serta menyediakan dana kas keras saat kondisi darurat.</div></li>
+                    <li class="mb-2">Berikan satu contoh penerapan alokasi berbagi (Sharing) yang bersifat wajib kepada negara saat kita berbelanja! <div class="essay-answer">Membayar Pajak Pertambahan Nilai (PPN), misalnya ketika kita membayar tagihan makanan di restoran yang ditambahkan PPN 10-11%.</div></li>
+                    <li class="mb-2">Apa tujuan dari mempelajari cakupan "Mengenali Kejahatan Finansial"? <div class="essay-answer">Agar kita menjadi waspada dan tidak mudah terjebak menjadi korban dari investasi bodong, penipuan online, maupun terbawa ke dalam praktik korupsi yang merugikan orang lain.</div></li>
+                    <li class="mb-2">Bagaimana pemahaman literasi keuangan dapat memicu tumbuhnya jiwa wirausaha bagi seorang siswa? <div class="essay-answer">Dengan paham arus uang masuk dan keluar, siswa akan terdorong mencari ide kreatif untuk mendapatkan uang tambahan (memulai usaha kecil), dan ia memiliki bekal ilmu untuk memutar modal usahanya tanpa rugi.</div></li>
+                </ol>
+                <button class="btn-toggle-essay mt-3" onclick="toggleAnswers(this)" style="border-color: #ea580c; color: #ea580c;"><i class="fas fa-eye me-2"></i>Cek Kunci Jawaban</button>
+            </div>
+
+            <!-- MCQ BAB 4 -->
+            <div class="eval-box shadow-sm mt-4">
+                <div class="eval-title"><i class="fas fa-list-check me-2" style="color:#ea580c;"></i> Kuis Pilihan Ganda Bab 4</div>
+                <form id="quiz4Form"></form>
+                <button type="button" class="btn-submit-quiz mt-4" style="background-color: #ea580c;" onclick="submitQuiz('quiz4Form', 20)">Kumpulkan & Lihat Nilai</button>
+                <div id="quiz4FormResult" class="result-box" style="background: #ffedd5; color: #9a3412; border-color: #fdba74;"></div>
+            </div>
         </div>
     </div>
 
 </div>
 
+<!-- JavaScript Logic -->
 <script>
     // FUNGSI TOGGLE JAWABAN ESAI
     function toggleAnswers(button) {
-        let container = button.closest('.essay-container');
+        let container = button.closest('.eval-box');
         let answers = container.querySelectorAll('.essay-answer');
         let isHidden = answers[0].style.display === 'none' || answers[0].style.display === '';
         
         answers.forEach(ans => {
             ans.style.display = isHidden ? 'block' : 'none';
         });
+
+        if(isHidden) {
+            button.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Sembunyikan Kunci Jawaban';
+        } else {
+            button.innerHTML = '<i class="fas fa-eye me-2"></i>Cek Kunci Jawaban';
+        }
     }
 
-    // DATA KUIS - BAB 1 (20 Soal Unik)
+    // DATA KUIS (20 Soal per Bab)
     const qBab1 = [
         { q: "Kata ekonomi berasal dari bahasa Yunani, yaitu Oikonomia. Kata 'Oikos' memiliki arti...", o: ["Hukum", "Uang", "Rumah Tangga/Keluarga", "Masyarakat"], a: 2 },
         { q: "Kata 'Nomos' dalam bahasa Yunani berarti...", o: ["Aturan / Manajemen", "Rumah", "Uang", "Negara"], a: 0 },
@@ -351,7 +512,6 @@
         { q: "Memprediksi efek dari kebijakan subsidi pemerintah adalah salah satu bagian dari...", o: ["Tujuan ilmu ekonomi", "Kerugian ilmu ekonomi", "Manfaat ilmu ekonomi", "Sejarah ilmu ekonomi"], a: 2 }
     ];
 
-    // DATA KUIS - BAB 2 (20 Soal Unik)
     const qBab2 = [
         { q: "Kondisi ketika jumlah kebutuhan tidak sebanding dengan alat pemenuhan kebutuhannya disebut...", o: ["Kemiskinan", "Kelangkaan", "Ketidakadilan", "Inflasi"], a: 1 },
         { q: "Berikut ini yang BUKAN merupakan faktor penyebab kelangkaan adalah...", o: ["Perbedaan Letak Geografis", "Bencana Alam", "Pertumbuhan Penduduk yang menurun", "Keterbatasan Produksi"], a: 2 },
@@ -375,7 +535,6 @@
         { q: "Hal yang pasti berbanding terbalik dalam konsep kelangkaan adalah...", o: ["Keinginan yang terbatas, sumber daya yang tak terbatas", "Keinginan tak terbatas, sumber daya terbatas", "Keinginan dan sumber daya sama-sama tak terbatas", "Keinginan dan sumber daya sama-sama terbatas"], a: 1 }
     ];
 
-    // DATA KUIS - BAB 3 (20 Soal Unik)
     const qBab3 = [
         { q: "Cara yang digunakan suatu negara untuk memecahkan dan mengatasi masalah ekonomi disebut...", o: ["Kebijakan Moneter", "Sistem Ekonomi", "Politik Ekonomi", "Prinsip Ekonomi"], a: 1 },
         { q: "Sistem ekonomi yang hanya bertujuan memenuhi kebutuhan sehari-hari tanpa mencari untung adalah sistem ekonomi...", o: ["Campuran", "Komando", "Liberal", "Tradisional"], a: 3 },
@@ -399,7 +558,6 @@
         { q: "Sistem ekonomi yang paling rentan terkena krisis atau resesi akibat kebebasan tanpa batas adalah sistem ekonomi...", o: ["Tradisional", "Komando", "Liberal", "Campuran"], a: 2 }
     ];
 
-    // DATA KUIS - BAB 4 (20 Soal Unik)
     const qBab4 = [
         { q: "Kemampuan individu memahami dan menerapkan pengelolaan keuangannya sehari-hari disebut...", o: ["Ilmu Akuntansi", "Literasi Finansial", "Manajemen Bisnis", "Ekonomi Makro"], a: 1 },
         { q: "Siapa saja pihak yang dinilai sangat memerlukan kemampuan literasi finansial?", o: ["Orang kaya saja", "Pengusaha saja", "Siapa saja, termasuk pelajar", "Pejabat negara"], a: 2 },
@@ -423,26 +581,20 @@
         { q: "Pengeluaran harian seperti uang makan, bensin, atau tiket angkot termasuk dalam kategori pengeluaran jangka...", o: ["Sangat panjang", "Menengah", "Panjang", "Pendek"], a: 3 }
     ];
 
-    const quizData = {
-        'quiz1Form': qBab1,
-        'quiz2Form': qBab2,
-        'quiz3Form': qBab3,
-        'quiz4Form': qBab4
-    };
+    const quizData = { 'quiz1Form': qBab1, 'quiz2Form': qBab2, 'quiz3Form': qBab3, 'quiz4Form': qBab4 };
 
-    // FUNGSI RENDER KUIS (Membentuk HTML Pilihan Ganda secara Otomatis)
+    // FUNGSI RENDER KUIS
     function renderQuiz(formId, questions) {
         let form = document.getElementById(formId);
         if(!form) return;
-
         let html = '';
         questions.forEach((q, index) => {
             html += `<div class="mb-4">
-                        <p class="mb-2 fw-bold">${index + 1}. ${q.q}</p>`;
+                        <p class="mb-2 fw-semibold text-dark">${index + 1}. ${q.q}</p>`;
             q.o.forEach((opt, i) => {
-                html += `<div class="form-check">
+                html += `<div class="form-check ms-3">
                             <input class="form-check-input" type="radio" name="${formId}_q${index}" id="${formId}_q${index}_opt${i}" value="${i}">
-                            <label class="form-check-label" for="${formId}_q${index}_opt${i}">${opt}</label>
+                            <label class="form-check-label text-secondary" for="${formId}_q${index}_opt${i}">${opt}</label>
                          </div>`;
             });
             html += `</div>`;
@@ -466,21 +618,19 @@
             }
         }
         
-        // Peringatan jika belum dijawab semua
         if(answered < totalQuestions) {
             alert(`Harap jawab semua pertanyaan! Anda baru menjawab ${answered} dari ${totalQuestions} soal.`);
             return;
         }
 
-        // Kalkulasi Nilai
         let resultBox = document.getElementById(formId + 'Result');
         let finalScore = (score / totalQuestions) * 100;
         
         resultBox.style.display = 'block';
-        resultBox.innerHTML = `Anda menjawab benar <strong>${score}</strong> dari <strong>${totalQuestions}</strong> soal.<br><span style="font-size: 1.5em; color: ${finalScore >= 75 ? '#198754' : '#dc3545'};">Nilai Anda: ${finalScore}</span>`;
+        resultBox.innerHTML = `Anda menjawab benar <strong>${score}</strong> dari <strong>${totalQuestions}</strong> soal. <br> <span class="score-display">Nilai Anda: ${finalScore}</span>`;
     }
 
-    // Eksekusi Render setelah halaman dimuat
+    // Eksekusi Render
     document.addEventListener("DOMContentLoaded", function() {
         renderQuiz('quiz1Form', quizData['quiz1Form']);
         renderQuiz('quiz2Form', quizData['quiz2Form']);
